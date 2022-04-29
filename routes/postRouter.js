@@ -19,7 +19,7 @@ router.get("/", auth, async (req, res, next) => {
 
 //Adds a new post
 router.post("/", [auth], async (req, res, next) => {
-    let { details, title, img } = req.body;
+    let { details, title, img ,category} = req.body;
     let user_id = req.user._id;
     let username = req.user.fullname
     const posts = new Post({
@@ -35,6 +35,7 @@ router.post("/", [auth], async (req, res, next) => {
             username,
             img,
             details,
+            category
         });
         const updatedPost = await posts.save();
         res.status(201).json(updatedPost);
@@ -42,6 +43,34 @@ router.post("/", [auth], async (req, res, next) => {
         res.status(500).json(console.log(error));
     }
 });
+router.get('/test/:id', getPost, function(req, res, next){
+    res.json(res.post)
+})
+// UPDATE a post
+router.put("/:id", [auth, getPost], async (req, res, next) => {
+    if (req.user._id !== res.post.user_id)
+      res
+        .status(400)
+        .json({ message: "You do not have the permission to update this post" });
+    const { title, category,details, img } = req.body;
+    try {
+      const updatedPost = await Post.updateOne(
+        {
+          _id: res.post._id,
+          username: res.post.username,
+          user_id: req.user._id
+        },
+        {
+          $set: { post: {"title":title, "category":category, "details":details,"img":img}},
+        },
+      );;
+      res.status(201).send(updatedPost);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  });
+
+
 //Delete single post
 router.delete('/single', auth, async (req, res, next) => {
 

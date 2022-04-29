@@ -1,6 +1,6 @@
 // This is used to find various Schemas
 const User = require("../models/user");
-
+const Post = require("../models/post")
 async function getUser(req, res, next) {
   let user;
   try {
