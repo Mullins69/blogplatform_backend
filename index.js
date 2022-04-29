@@ -19,7 +19,6 @@ app.get('/', (req, res, next) =>{
     res.send('<h1>Welcome To Our BlogPlatForm Api<h1>');
 })
 app.use('/users', userRoute)
-
 app.use('/posts', postRoute)
 
 app.listen(app.get('port'), server =>{
