@@ -32,6 +32,7 @@ router.post("/", [auth], async (req, res, next) => {
     try {
         posts.post.push({
             title,
+            username,
             img,
             details,
         });
