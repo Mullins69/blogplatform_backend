@@ -73,7 +73,6 @@ router.put("/:id", [auth, getPost], async (req, res, next) => {
 
 //Delete single post
 router.delete('/single', auth, async (req, res, next) => {
-
     try {
         const id = req.body
         const post = await Post.findByIdAndDelete({ _id: ObjectId(id) });
