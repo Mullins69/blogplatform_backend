@@ -18,7 +18,6 @@ app.set('port', process.env.port || 3000)
 app.get('/', (req, res, next) =>{
     res.send('<h1>Welcome To Our BlogPlatForm Api<h1>');
 })
-
 app.use('/users', userRoute)
 app.use('/posts', postRoute)
 
