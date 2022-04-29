@@ -13,7 +13,6 @@ db.once("open", () => console.log("Connected to database"));
 app.use(cors());
 app.use(express.json());
 
-app.set('port', process.env.port || 3000) 
 
 app.get('/', (req, res, next) =>{
     res.send('<h1>Welcome To Our BlogPlatForm Api<h1>');
@@ -21,8 +20,10 @@ app.get('/', (req, res, next) =>{
 app.use('/users', userRoute)
 app.use('/posts', postRoute)
 
-app.listen(app.get('port'), server =>{
-    console.info(`Server listen on port ${app.get('port')}`);
-})
+
+app.set("port", process.env.PORT || 3000);
+app.listen(app.get("port"), (server) => {
+  console.info(`Server listen on port ${app.get("port")}`);
+});
 
 
