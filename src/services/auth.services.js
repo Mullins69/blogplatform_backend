@@ -1,11 +1,11 @@
 import axios from "axios";
-const API_URL = "";
+const API_URL = "https://blogplatapi.herokuapp.com/";
 class AuthService {
-  async login(customer) {
+  async login(user) {
     return axios
-      .post(API_URL + "login", {
-        email: customer.email,
-        password: customer.password,
+      .post(API_URL + "users", {
+        email: user.email,
+        password: user.password,
       })
       .then((response) => {
         if (response.data.accessToken) {
@@ -17,12 +17,12 @@ class AuthService {
   logout() {
     localStorage.removeItem("");
   }
-  register(customer) {
-    return axios.post(API_URL + "", {
-      customername: customer.customername,
-      email: customer.email,
-      password: customer.password,
-      phone_number: customer.phone_number
+  register(user) {
+    return axios.post(API_URL + "users", {
+      fullname: user.fullname,
+      email: user.email,
+      password: user.password,
+      role: "reader"
     });
   }
 }
