@@ -6,7 +6,8 @@
     </div>
     <div class="nav-items">
       
-        <!-- <router-link   @click="toggleNav"   to="/">Home</router-link> -->
+        <router-link   @click="toggleNav"   to="/">Home</router-link>
+        <router-link   @click="toggleNav"  v-if="currentUser"  :to="{ name: 'Profile' }">Profile</router-link>
       
       
         <router-link  @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignUp' }">Sign Up</router-link>
