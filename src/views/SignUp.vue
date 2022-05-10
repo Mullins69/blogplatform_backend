@@ -46,6 +46,7 @@
                       <span v-show="loading"><Loader/></span>
                     </button>
                 </div>
+                  <h4 class="para_button">By  clicking  the Sign Up button, you agree to our <span class="terms_privacy">Terms & Conditions</span> , and <span class="terms_privacy">Privacy Policy..</span> </h4>
                 <div class="form-group">
                   <div v-if="message" class="alert alert-danger" role="alert">
                       {{message}}
@@ -159,6 +160,23 @@ export default {
 </script>
 
 <style scoped>
+.terms_privacy{
+  color: red
+}
+.para_button{
+  width: 350px;
+height: 48px;
+
+font-family: 'Inter';
+font-style: italic;
+font-weight: 400;
+font-size: 10px;
+line-height: 24px;
+text-align: center;
+margin-top: 10px;
+
+color: #000000;
+}
  .container{
      display: grid; 
      justify-content:center;
@@ -168,7 +186,7 @@ export default {
   font-family: 'Inter';
 font-style: italic;
 font-weight: 300;
-font-size: 20px;
+font-size: 17px;
 line-height: 29px;
 /* identical to box height */
 
@@ -341,6 +359,7 @@ h1.headin{
     height: auto;
     padding: 13px 52px;
     font-size: 15px;
+    border-radius: 60px;
     
 }
 

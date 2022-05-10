@@ -27,6 +27,7 @@
 
                     </button>
                 </div>
+              
                 </div>
                 <div class="form-group">
             <div v-if="message" class="alert alert-danger" role="alert">
@@ -279,6 +280,7 @@ h1.headin{
     height: auto;
     padding: 13px 52px;
     font-size: 15px;
+    border-radius: 60px;
     
 }
 
