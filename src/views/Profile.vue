@@ -9,10 +9,10 @@
       <div class="col">
          <img src="https://i.postimg.cc/q7zMKRBh/blank-profile-picture-973460-640.png" alt="">
       <div class="picInfo">
-      <h6>{{ currentUser.fullname }}</h6>
+      <h6>{{ fullname }}</h6>
     </div>
      <div  class="picInfo">
-      <h6>{{ currentUser.email}}</h6>
+      <h6>{{ email}}</h6>
     </div>
      <div class="buttons p-5">
           <button class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">EDIT</button>
@@ -23,9 +23,9 @@
       <div class="about-profile">   
         <ul class="admin-profile">
 
-          <li><span class="pro-title"> EMAIL </span> <span class="pro-detail">{{ currentUser.email}}</span></li>
-          <li><span class="pro-title"> NAME </span> <span class="pro-detail">{{ currentUser.fullname }}</span></li>
-          <li><span class="pro-title"> ROLE </span> <span class="pro-detail">{{ currentUser.role }}</span></li>
+          <li><span class="pro-title"> EMAIL </span> <span class="pro-detail">{{ email}}</span></li>
+          <li><span class="pro-title"> NAME </span> <span class="pro-detail">{{ fullname }}</span></li>
+          <li><span class="pro-title"> ROLE </span> <span class="pro-detail">{{ role }}</span></li>
         </ul>
     
         
@@ -95,30 +95,45 @@
 </template>
 <script>
 const url = "https://blogplatapi.herokuapp.com/users";
+import authHeader from "../services/auth-header";
+const API_URL = "https://blogplatapi.herokuapp.com/users/oneuser";
 import axios from "axios";
 export default {
+  
   name: "Profile",
-  computed: {
-    currentUser() {
-      
-      return this.$store.state.auth.user;
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push("/Login");
-    }
-  },
-  data() {
+    data() {
     return {
-      updatedUser:{
+      // updatedUser:{
+      // email:"",
+      // fullname:"",
+      // role:"",
+      // },
       email:"",
       fullname:"",
       role:"",
-      },
-      
     }
   },
+  computed: {
+    currentUser() {
+      axios.get(API_URL,{headers: authHeader()})
+      .then(res => {
+        this.email = res.data.email
+        this.role = res.data.role
+        this.fullname = res.data.fullname
+      })
+      .catch(err => {
+        console.error(err); 
+      })
+            // return this.$store.state.auth.user;
+
+    },
+  },
+  mounted() {
+    // if (!this.currentUser) {
+    //   this.$router.push("/Login");
+    // }
+  },
+
   methods: {
     async updateUser() {
        try {

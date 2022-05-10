@@ -8,14 +8,14 @@ class AuthService {
         password: user.password,
       })
       .then((response) => {
-        if (response.data.accessToken) {
-          localStorage.setItem("", JSON.stringify(response.data));
+        if (response.data.jwt) {
+          localStorage.setItem("user", JSON.stringify(response.data.jwt));
         }
-        return response.data;
+        return response.data.jwt;
       });
   }
   logout() {
-    localStorage.removeItem("");
+    localStorage.removeItem("user");
   }
   register(user) {
     return axios.post(API_URL + "users", {
