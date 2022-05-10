@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET one user
+// GET  that one user thats logged in
 router.get("/oneuser/", auth, async (req, res, next) => {
   try {
     const user = await User.findById(req.user._id);
@@ -26,17 +26,12 @@ router.get("/oneuser/", auth, async (req, res, next) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+//get one user by id
 router.get("/oneuser/:id", [auth,getUser], async (req, res, next) => {
   res.send(res.user)
 });
-router.get("/oneuser/", auth, async (req, res, next) => {
-  try {
-    const user = await User.findById(req.user._id);
-    res.status(201).json(user);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+
 
 // LOGIN user with email + password
 router.patch("/", async (req, res, next) => {
