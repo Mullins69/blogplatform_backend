@@ -2,7 +2,9 @@
 <template>
   <nav>
     <div class="nav-icon">
+       <router-link class="navbar-brand"  @click="toggleNav"  to="/">
       <h2>The Blog.</h2>
+       </router-link>
     </div>
     <div class="nav-items">
       
