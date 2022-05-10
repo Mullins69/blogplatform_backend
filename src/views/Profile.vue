@@ -42,7 +42,7 @@
  
     <!-- edit modal -->
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -53,21 +53,21 @@
         <form >
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="recipient-name" >
+            <input type="text" class="form-control" id="recipient-name"  v-model="fullname">
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="recipient-name" >
+            <input type="text" class="form-control" id="recipient-name"  v-model="email">
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="message-text" class="col-form-label">Phone:</label>
-            <input type="text" class="form-control" id="recipient-name"  >
-          </div>
+            <input type="text" class="form-control" id="recipient-name"  v-model="password">
+          </div> -->
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn" >SAVE</button>
+        <button type="button" class="btn" @click.prevent="updateUser()" >SAVE</button>
       </div>
     </div>
   </div>
@@ -124,8 +124,8 @@ export default {
         method: "PATCH",
         body: JSON.stringify({
            email: this.updatedUser.email,
-           customername: this.updatedUser.customername,
-           phone_number: this.updatedUser.phone_number,
+           fullname: this.updatedUser.fullname,
+           password: this.updatedUser.password,
         }),
         headers: {
           "Content-Type": "application/json",
