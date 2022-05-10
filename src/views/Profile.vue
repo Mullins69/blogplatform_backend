@@ -1,8 +1,8 @@
 <template>
  
   <div class="container">
-  <h1 class="jumbotron" style="font-weight: bold;color:#b18044">PROFILE</h1>
-  <div class="border"></div>
+  <h1 class="jumbotron">PROFILE</h1>
+
     
    
     <div class="row p-5">
@@ -187,6 +187,15 @@ export default {
 </script>
 
 <style scoped>
+.jumbotron {
+        font-family: 'Inter';
+font-style: italic;
+font-weight: 500;
+font-size: 30px;
+line-height: 77px;
+
+color: #000000;
+}
 /* .buttons{
   display: flex;
   padding-top: 20px;

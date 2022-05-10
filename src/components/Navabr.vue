@@ -27,15 +27,21 @@
         <router-link :to="{ path: '/' }" class="mobile">Home</router-link>
       </a>
       <a href="">
-        <router-link :to="{ name: 'SignUp' }" class="mobile"
+        <router-link @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignUp' }" class="mobile"
           >Sign Up</router-link
         >
       </a>
       <a href="">
-        <router-link :to="{ name: 'SignIn' }" class="mobile"
+        <router-link @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignIn' }" class="mobile"
           >Sign In</router-link
         >
       </a>
+      <a href="">
+        <router-link @click="toggleNav" v-if="currentUser" :to="{ name: 'Profile' }" class="mobile"
+          >Profile</router-link
+        >
+      </a>
+      <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
     </div>
   </nav>
 </template>
