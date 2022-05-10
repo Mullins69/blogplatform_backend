@@ -16,7 +16,7 @@
     </div>
      <div class="buttons p-5">
           <button class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">EDIT</button>
-          <button class="btn" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal">DELETE</button>
+          <button class="btn" id="delete"  @click="deleteUser" >DELETE</button>
      </div>
     </div>
     <div class="col">
@@ -74,24 +74,7 @@
 </div>
 
 
-<!-- delete modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="this.currentUser">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="color:#b18044;">Delete your profile?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       Are you sure you want to delete you account?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn" @click.prevent="deleteUser()">YES</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 </template>
 <script>
 const url = "https://blogplatapi.herokuapp.com/users";
@@ -166,20 +149,23 @@ export default {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("customer")).accessToken
+            JSON.parse(localStorage.getItem("user"))
           }`,
           },
       };
-      const new_url = `${url}`;
-      try {
-        await axios.delete(new_url, headers, this.currentUser).then(() => {
+      const new_url = url;
+       if (confirm("Do you really want to delete your profile?")){
+          try {
+        await axios.delete(new_url, headers).then(() => {
           alert("Profile has been deleted successfully");
           this.$store.dispatch("auth/logout");
-          this.$router.push("/Login")
+          this.$router.push("/")
         });
       } catch(err) {
         console.error(err);
       }
+       }
+     
     },
    
   },
