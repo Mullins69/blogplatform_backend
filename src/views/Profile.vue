@@ -42,7 +42,7 @@
  
     <!-- edit modal -->
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="currentUser" >
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -53,21 +53,21 @@
         <form >
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="updatedUser.customername">
+            <input type="text" class="form-control" id="recipient-name" >
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="updatedUser.email">
+            <input type="text" class="form-control" id="recipient-name" >
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Phone:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="updatedUser.phone_number">
+            <input type="text" class="form-control" id="recipient-name"  >
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn" @click.prevent="updateUser()" >SAVE</button>
+        <button type="button" class="btn" >SAVE</button>
       </div>
     </div>
   </div>

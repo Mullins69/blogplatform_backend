@@ -11,7 +11,7 @@ export default {
 <style scoped>
 footer {
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: -35px;
   display: flex;
   justify-content: center;
@@ -27,9 +27,9 @@ footer {
     font-family: 'Inter';
     font-style: italic;
 } */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   footer {
     min-height: 35px;
   }
-}
+} */
 </style>
