@@ -23,24 +23,24 @@
       </button>
     </div>
     <div class="mobile-nav-items">
-      <a href="">
+      
         <router-link :to="{ path: '/' }" class="mobile">Home</router-link>
-      </a>
-      <a href="">
+    
+    
         <router-link @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignUp' }" class="mobile"
           >Sign Up</router-link
         >
-      </a>
-      <a href="">
+  
+      
         <router-link @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignIn' }" class="mobile"
           >Sign In</router-link
         >
-      </a>
-      <a href="">
+      
+      
         <router-link @click="toggleNav" v-if="currentUser" :to="{ name: 'Profile' }" class="mobile"
           >Profile</router-link
         >
-      </a>
+    
       <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
     </div>
   </nav>
@@ -99,6 +99,10 @@ nav {
   position: fixed;
   top: 0;
   z-index: 2;
+}
+  
+nav a.router-link-exact-active {
+  color: red;
 }
 .nav-icon {
   /* width: 50%; */
@@ -181,7 +185,7 @@ nav {
     gap: 1rem;
     width: 50%;
     height: 100%;
-    background-color: rgb(242, 213, 213);
+    background-color: #e5e5e5;
     z-index: 3;
     transition: all 0.5s;
   }
@@ -196,6 +200,7 @@ nav {
   .mobile-nav-items.active {
     right: 0;
   }
+
   .menu .bar,
   .menu:before,
   .menu:after {
