@@ -2,7 +2,7 @@
 <template>
   <nav>
     <div class="nav-icon">
-      <h2>The Blog</h2>
+      <h2>The Blog.</h2>
     </div>
     <div class="nav-items">
       
@@ -95,13 +95,13 @@ nav {
   z-index: 2;
 }
 .nav-icon {
-  width: 50%;
+  /* width: 50%; */
   display: flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items: center;
   flex-direction: row;
   gap: 1.5rem;
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
   font-family: 'Inter';
   font-style: italic;
   font-weight: 800;
@@ -118,11 +118,11 @@ nav {
   color: black;
 }
 .nav-items {
-  /* width: 50%; */
+  width: 50%;
   display: flex;
-  /* justify-content: flex-end; */
-  /* align-items: center; */
-  /* flex-direction: row; */
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
   gap: 1.5rem;
   margin-right: 1.5rem;
 }
@@ -137,9 +137,9 @@ nav {
   .nav-items {
     display: none;
   }
-  .nav-icon {
+  /* .nav-icon {
     display: none;
-  }
+  } */
   .mobile-nav {
     width: 100%;
     display: flex;
