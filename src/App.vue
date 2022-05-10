@@ -26,7 +26,7 @@ font-family: 'Inter', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-  background:#f7fcfd;
+  /* background:#f7fcfd; */
 }
 
 #nav {
