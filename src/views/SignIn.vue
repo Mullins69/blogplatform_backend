@@ -204,7 +204,7 @@ height: 44px;
 
 font-family: 'Inter';
 font-style: italic;
-font-weight: 800;
+font-weight: 700;
 font-size: 20px;
 line-height: 44px;
 /* identical to box height */

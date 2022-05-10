@@ -17,12 +17,14 @@
         <div v-if="!successful">
         
                 <div class="form-group">
+                  <i class="fas fa-user"></i>
                     <label class="form-label" id="nameLabel" for="name"></label>
                     <Field type="text" class="form-control" id="fullname" name="fullname" placeholder="Username" tabindex="1"  />
                     <ErrorMessage name="fullname" class="error-feedback" />
                 </div>
 
                 <div class="form-group">
+                  <i class="fas fa-envelope"></i>
                     <label class="form-label" id="emailLabel" for="email"></label>
                     <Field type="email" class="form-control" id="email" name="email" placeholder="Email Address" tabindex="2" />
                     <ErrorMessage name="email" class="error-feedback" />
@@ -30,15 +32,16 @@
 
 
                 <div class="form-group">
+                  <i class="fas fa-lock"></i>
                     <label class="form-label" id="subjectLabel" for="sublect"></label>
                     <Field type="text" class="form-control" id="password" name="password" placeholder="Password" tabindex="3"/>
                     <ErrorMessage name="password" class="error-feedback" />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="form-label" id="subjectLabel" for="sublect"></label>
                     <Field type="text" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" tabindex="3" />
                     <ErrorMessage name="confirm_password" class="error-feedback" />
-                </div>
+                </div> -->
 
                 <div class=" b text-center margin-top-25">
                     <button class="btn btn-mod btn-border btn-large">
