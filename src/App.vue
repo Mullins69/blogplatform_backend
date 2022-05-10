@@ -1,6 +1,8 @@
 <template>
   <Navbar/>
-  <router-view/>
+<main>
+  <router-view :key="$route.fullPath" :services="services" />
+ </main>
   <Footer/>
 </template>
 

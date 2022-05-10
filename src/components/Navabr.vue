@@ -5,12 +5,15 @@
       <h2>The Blog</h2>
     </div>
     <div class="nav-items">
-      <a href="">
+      
         <router-link to="/">Home</router-link>
-      </a>
-      <a href="">
-        <router-link :to="{ path: '/signup' }">Sign Up</router-link>
-      </a>
+      
+      
+        <router-link :to="{ name: 'SignUp' }">Sign Up</router-link>
+      
+      
+        <router-link :to="{ name: 'SignIn' }">Sign In</router-link>
+      
     </div>
     <div class="mobile-nav">
       <button class="menu">
@@ -22,7 +25,12 @@
         <router-link :to="{ path: '/' }" class="mobile">Home</router-link>
       </a>
       <a href="">
-        <router-link :to="{ path: '/signup' }" class="mobile"
+        <router-link :to="{ name: 'SignUp' }" class="mobile"
+          >Sign Up</router-link
+        >
+      </a>
+      <a href="">
+        <router-link :to="{ name: 'SignIn' }" class="mobile"
           >Sign Up</router-link
         >
       </a>
