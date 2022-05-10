@@ -173,17 +173,17 @@ nav {
     align-items: center;
     flex-direction: column;
     gap: 1rem;
-    width: 100%;
+    width: 50%;
     height: 100%;
-    background-color: #130f40;
+    background-color: rgb(242, 213, 213);
     z-index: 3;
-    transition: all 0.2s;
+    transition: all 0.5s;
   }
   .mobile-nav-items a {
     text-decoration: none;
     font-size: 15px;
     font-weight: 700;
-    color: #ffffff;
+    color:black;
     width: 80%;
     text-align: center;
   }
@@ -197,8 +197,8 @@ nav {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #ffffff;
-    transition: all 0.2s;
+    background-color: black;
+    transition: all 0.5s;
   }
   .menu.active:before {
     transform: rotate(45deg) translate(5.5px, 6px);
