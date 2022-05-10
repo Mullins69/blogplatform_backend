@@ -3,7 +3,7 @@ const API_URL = "https://blogplatapi.herokuapp.com/";
 class AuthService {
   async login(user) {
     return axios
-      .post(API_URL + "users", {
+      .patch(API_URL + "users", {
         email: user.email,
         password: user.password,
       })

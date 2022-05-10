@@ -6,13 +6,14 @@
     </div>
     <div class="nav-items">
       
-        <router-link to="/">Home</router-link>
+        <!-- <router-link   @click="toggleNav"   to="/">Home</router-link> -->
       
       
-        <router-link :to="{ name: 'SignUp' }">Sign Up</router-link>
+        <router-link  @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignUp' }">Sign Up</router-link>
       
       
-        <router-link :to="{ name: 'SignIn' }">Sign In</router-link>
+        <router-link  @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignIn' }">Sign In</router-link>
+         <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
       
     </div>
     <div class="mobile-nav">
@@ -41,10 +42,45 @@
 <script>
 export default {
   name: "Navbar",
+      data(){
+        return {
+            isActive: false,
+            showAdmin: false
+        };
+    },
+    methods:{
+        toggleNav() {
+            this.isActive = !this.isActive;
+        },
+        logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/SignIn');
+    }
+    },
+    computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+   
+  },
+  // created() {
+  //     if(this.currentUser){
+  //         if(this.currentUser.role == 'admin'){
+  //             this.showAdmin = true;
+  //         }else{
+  //             this.showAdmin = false;
+  //         }
+  //     }
+  // }
 };
 </script>
 
 <style scoped>
+.btn {
+  font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
 nav {
   width: 100%;
   display: flex;

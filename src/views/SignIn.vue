@@ -22,7 +22,7 @@
                 <div class="form-group">
                 <div class=" b text-center margin-top-25">
                     <button class="btn btn-mod btn-border btn-large" :disabled="loading">
-                      <span class="log" v-show="!loading">LOGIN</span>
+                      <span class="log" v-show="!loading">LOG IN</span>
                       <span v-show="loading"><Loader/></span>
 
                     </button>
