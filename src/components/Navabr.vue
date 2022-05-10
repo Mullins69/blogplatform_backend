@@ -33,7 +33,7 @@
       </a>
       <a href="">
         <router-link :to="{ name: 'SignIn' }" class="mobile"
-          >Sign Up</router-link
+          >Sign In</router-link
         >
       </a>
     </div>

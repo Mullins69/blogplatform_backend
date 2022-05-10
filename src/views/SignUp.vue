@@ -46,6 +46,9 @@
                       <span v-show="loading"><Loader/></span>
                     </button>
                 </div>
+                   <div class="signUp_btn">
+              <h6> Already have an account?   <router-link :to="{ name: 'SignIn'}">Login</router-link></h6>      
+          </div>
                   <h4 class="para_button">By  clicking  the Sign Up button, you agree to our <span class="terms_privacy">Terms & Conditions</span> , and <span class="terms_privacy">Privacy Policy..</span> </h4>
                 <div class="form-group">
                   <div v-if="message" class="alert alert-danger" role="alert">
@@ -155,6 +158,13 @@ export default {
 </script>
 
 <style scoped>
+.signUp_btn{
+  font-family: 'Inter';
+  font-style: italic;
+  margin-top: 10px;
+font-size: 10px;
+  color: #000000;
+}
 .terms_privacy{
   color: red
 }
@@ -168,7 +178,7 @@ font-weight: 400;
 font-size: 10px;
 line-height: 24px;
 text-align: center;
-margin-top: 10px;
+/* margin-top: 10px; */
 
 color: #000000;
 }
@@ -207,7 +217,8 @@ color: #000000;
 margin-top: 300px;
 } */
 a {
-  text-decoration: none;
+   text-decoration: none;
+    color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .signUp{
