@@ -1,9 +1,9 @@
 
 <template>
   <nav>
-    <!-- <div class="nav-icon">
-      <h2>Icon</h2>
-    </div> -->
+    <div class="nav-icon">
+      <h2>The Blog</h2>
+    </div>
     <div class="nav-items">
       <a href="">
         <router-link to="/">Home</router-link>
@@ -11,11 +11,6 @@
       <a href="">
         <router-link :to="{ path: '/signup' }">Sign Up</router-link>
       </a>
-    </div>
-    <div class="the_blog">
-      <h1>The Blog</h1>
-      <!-- <hr class="line"> -->
-      <div class="line"></div>
     </div>
     <div class="mobile-nav">
       <button class="menu">
@@ -42,12 +37,6 @@ export default {
 </script>
 
 <style scoped>
-.line{
-  width: 422.86px;
-  height: 17.33px;
-  border: 3px solid #000000;
-
-}
 nav {
   width: 100%;
   display: flex;
@@ -63,25 +52,32 @@ nav {
 .nav-icon {
   width: 50%;
   display: flex;
-  justify-content: flex-start;
+  justify-content:center;
   align-items: center;
   flex-direction: row;
   gap: 1.5rem;
   margin-left: 1.5rem;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 116px;
+  color: #000000;
+  margin-top: 20px;
 }
-.nav-icon h2,
+ h2,
 .nav-items a {
-  font-size: 15px;
+  /* font-size: 15px; */
   font-weight: 700;
   text-decoration: none;
   color: black;
 }
 .nav-items {
-  width: 50%;
+  /* width: 50%; */
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: row;
+  /* justify-content: flex-end; */
+  /* align-items: center; */
+  /* flex-direction: row; */
   gap: 1.5rem;
   margin-right: 1.5rem;
 }

@@ -1,29 +1,18 @@
 <template>
   <div class="container">
-      <!-- <div class="row">
-        <div class="col">
-       <h1>The Blog</h1>
-          
-      </div>
-      <div class="col">
-    <router-link :to="{ name: 'SignUp'}"> <h1 style="font-weight: bold;"><button class="btn btn-outline-dark">Login</button></h1></router-link>   
-
-      </div> -->
       <div class="name">
-
-       <div class="underline"></div>
-       <h1>Sign Up</h1>
-       <div class="underline"></div>
+       <h1 class="signup">Sign Up</h1>
       </div>
      
 
  <div id="card">
     <div id="card-content">
-      <!-- <div id="card-title">
-        <h1 style="font-weight: bold;color:#b18044">SIGN UP</h1>
-        <div class="border"></div>
+      <div id="card-title">
+        <h1>Create Account</h1>
+        <h3 class="desciption_create">It’s free & hardly takes more than 30 seconds.</h3>
+        <!-- <div class="border"></div> -->
  
-      </div> -->
+      </div>
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
         
@@ -35,20 +24,20 @@
 
                 <div class="form-group">
                     <label class="form-label" id="emailLabel" for="email"></label>
-                    <Field type="email" class="form-control" id="email" name="email" placeholder="Your Email" tabindex="2" />
+                    <Field type="email" class="form-control" id="email" name="email" placeholder="Email Address" tabindex="2" />
                     <ErrorMessage name="email" class="error-feedback" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label" id="subjectLabel" for="sublect"></label>
-                    <Field type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Contact Number" tabindex="3" />
-                    <ErrorMessage name="phone_number" class="error-feedback" />
-                </div>
 
                 <div class="form-group">
                     <label class="form-label" id="subjectLabel" for="sublect"></label>
                     <Field type="text" class="form-control" id="password" name="password" placeholder="Password" tabindex="3"/>
                     <ErrorMessage name="password" class="error-feedback" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" id="subjectLabel" for="sublect"></label>
+                    <Field type="text" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" tabindex="3" />
+                    <ErrorMessage name="confirm_password" class="error-feedback" />
                 </div>
 
                 <div class=" b text-center margin-top-25">
@@ -173,15 +162,32 @@ export default {
  .container{
      display: grid; 
      justify-content:center;
- }
 
- .underline{
-     border-bottom: 1px solid black;
-       
  }
+.desciption_create{
+  font-family: 'Inter';
+font-style: italic;
+font-weight: 300;
+font-size: 20px;
+line-height: 29px;
+/* identical to box height */
 
+
+color: rgba(0, 0, 0, 0.5);
+}
+.signup{
+  
+font-family: 'Inter';
+font-style: italic;
+font-weight: 500;
+font-size: 40px;
+line-height: 77px;
+
+color: #000000;
+
+}
 .name{
-  margin-top: 50px;
+  margin-top: 70px;
   align-items: center;
 }
 /* #card-content {
@@ -205,18 +211,22 @@ body {
   text-align: right;
 }
 #card {
- /* border: 1px solid black; */
+
   height: 650px;
-  margin: 6rem auto 8.1rem auto;
+
   width: 330px;
 }
-/* #card-content {
-  padding: 12px 44px;
-} */
+
 #card-title {
  
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 58px;
+  color: #000000;
   padding-bottom: 23px;
-  padding-top: 13px;
+  /* padding-top: 13px; */
   text-align: center;
 }
 #signup {
@@ -315,7 +325,7 @@ h1.headin{
     color: #333;
     background-color: #fff;
     background-image: none;
-    border: solid 1px #b68345;
+    border: solid 1px black;
  
   
 }
@@ -335,9 +345,9 @@ h1.headin{
 }
 
 .btn-mod.btn-border {
-    color: #fff;
-    border: 1px solid #b68345;
-    background: #b68345;
+    color: black;
+    border: 1px solid #F50808;
+    background: #F50808;
 }
 
 .btn-mod, a.btn-mod {
@@ -367,7 +377,7 @@ h1.headin{
 }
 
 .btn-mod.btn-border:hover, .btn-mod.btn-border:active, .btn-mod.btn-border:focus, .btn-mod.btn-border:active:focus {
-    color: black;
+    color: white;
     border-color:white ;
     
     outline: none;
