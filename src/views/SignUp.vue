@@ -18,8 +18,8 @@
         
                 <div class="form-group">
                     <label class="form-label" id="nameLabel" for="name"></label>
-                    <Field type="text" class="form-control" id="customername" name="customername" placeholder="Username" tabindex="1"  />
-                    <ErrorMessage name="customername" class="error-feedback" />
+                    <Field type="text" class="form-control" id="fullname" name="fullname" placeholder="Username" tabindex="1"  />
+                    <ErrorMessage name="fullname" class="error-feedback" />
                 </div>
 
                 <div class="form-group">
@@ -77,7 +77,7 @@ export default {
   },
   data() {
     const schema = yup.object().shape({
-      customername: yup
+      fullname: yup
         .string()
         .required("Username is required!")
         .min(3, "Must be at least 3 characters!")
@@ -91,12 +91,7 @@ export default {
         .string()
         .required("Password is required!")
         .min(6, "Must be at least 6 characters!")
-        .max(40, "Must be maximum 40 characters!"),
-     phone_number: yup
-        .string()
-        .required("Phone Number is required!")
-        // .min(6, "Must be at least 6 characters!")
-        // .max(40, "Must be maximum 40 characters!"),
+        .max(40, "Must be maximum 40 characters!")
     });
     return {
       successful: false,
