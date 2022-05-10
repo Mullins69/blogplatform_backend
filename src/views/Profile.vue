@@ -9,7 +9,7 @@
       <div class="col">
          <img src="https://i.postimg.cc/q7zMKRBh/blank-profile-picture-973460-640.png" alt="">
       <div class="picInfo">
-      <h6>{{ currentUser.customername }}</h6>
+      <h6>{{ currentUser.fullname }}</h6>
     </div>
      <div  class="picInfo">
       <h6>{{ currentUser.email}}</h6>
@@ -24,8 +24,8 @@
         <ul class="admin-profile">
 
           <li><span class="pro-title"> EMAIL </span> <span class="pro-detail">{{ currentUser.email}}</span></li>
-          <li><span class="pro-title"> NAME </span> <span class="pro-detail">{{ currentUser.customername }}</span></li>
-          <li><span class="pro-title"> PHONE </span> <span class="pro-detail">{{ currentUser.phone_number }}</span></li>
+          <li><span class="pro-title"> NAME </span> <span class="pro-detail">{{ currentUser.fullname }}</span></li>
+          <li><span class="pro-title"> ROLE </span> <span class="pro-detail">{{ currentUser.role }}</span></li>
         </ul>
     
         
@@ -94,12 +94,13 @@
 </div>
 </template>
 <script>
-const url = "https://barber-shopbackend.herokuapp.com/customers/";
+const url = "https://blogplatapi.herokuapp.com/users";
 import axios from "axios";
 export default {
   name: "Profile",
   computed: {
     currentUser() {
+      
       return this.$store.state.auth.user;
     },
   },
@@ -112,8 +113,8 @@ export default {
     return {
       updatedUser:{
       email:"",
-      customername:"",
-      phone_number:"",
+      fullname:"",
+      role:"",
       },
       
     }
