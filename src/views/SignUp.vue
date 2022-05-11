@@ -20,7 +20,7 @@
                
                     <label class="form-label" id="nameLabel" for="name">Username:</label>
                       <!-- <span class="icons"><i class="fas fa-user"></i></span>    -->
-                    <Field type="text" class="form-control" id="fullname" name="fullname" placeholder="Username" tabindex="1"  />
+                    <Field type="text" class="form-control" id="fullname" name="fullname" placeholder="Username" tabindex="1" required />
                     <ErrorMessage name="fullname" class="error-feedback" />
                 </div>
 
@@ -28,7 +28,7 @@
                   
                     <label class="form-label" id="emailLabel" for="email">Email Address:</label>
                      <!-- <span class="icons"><i class="fas fa-envelope"></i></span>    -->
-                    <Field type="email" class="form-control" id="email" name="email" placeholder="Email Address" tabindex="2" />
+                    <Field type="email" class="form-control" id="email" name="email" placeholder="Email Address" tabindex="2" required/>
                     <ErrorMessage name="email" class="error-feedback" />
                 </div>
 
@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <label class="form-label" id="subjectLabel" for="sublect">Password:</label>
                <!-- <span class="icons"><i class="fas fa-lock"></i></span>    -->
-                    <Field type="text" class="form-control" id="password" name="password" placeholder="Password" tabindex="3"/>
+                    <Field type="text" class="form-control" id="password" name="password" placeholder="Password" tabindex="3" required/>
                     <ErrorMessage name="password" class="error-feedback" />
                 </div>
                 <!-- <div class="form-group">

@@ -11,14 +11,14 @@
         <div class="form-group">
                     <label class="form-label" id="nameLabel" for="name"> Email Address:</label>
                     <!-- <Field type="text" class="form-control" id="name" name="customername"  tabindex="1" /> -->
-                    <Field name="email" type="text" class="form-control" placeholder=" Enter Email Address" />
+                    <Field name="email" type="text" class="form-control" placeholder=" Enter Email Address" required/>
                     <ErrorMessage name="email" class="error-feedback" />
                     
                 </div>
                 <div class="form-group">
                     <label class="form-label" id="subjectLabel" for="sublect">Password:</label>
                     <!-- <Field type="text" class="form-control" id="subject" name="password"  tabindex="3"/> -->
-                    <Field name="password" type="password" class="form-control" placeholder=" Enter Password" />
+                    <Field name="password" type="password" class="form-control" placeholder=" Enter Password" required/>
                     <ErrorMessage name="password" class="error-feedback"/>
                 </div>
                 <div class="form-group">
