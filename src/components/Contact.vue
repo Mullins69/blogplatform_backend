@@ -74,7 +74,9 @@ export default {
 </script>
 
 <style scoped>
-
+/* #contact-page{
+  position: absolute;
+} */
 .btn-mod.btn-large {
     height: auto;
     padding: 13px 52px;

@@ -8,7 +8,7 @@
  <div id="card">
     <div id="card-content">
       <div id="card-title">
-        <h1 class="create_account">Create Account</h1>
+        <h1 class="create_account">Create  Account</h1>
         <h3 class="desciption_create">It’s free & hardly takes more than 30 seconds.</h3>
         <!-- <div class="border"></div> -->
  
