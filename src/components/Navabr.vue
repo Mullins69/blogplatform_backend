@@ -187,9 +187,11 @@ nav a.router-link-exact-active {
     gap: 1rem;
     width: 50%;
     height: 100%;
-    background-color: rgb(24, 24, 24);
+   background-color: rgba(0, 0, 0, 0.95);
     z-index: 3;
     transition: all 0.5s;
+    box-shadow: 0px 0px 150px rgba(0, 0, 0, 0.2);
+   
     
   }
   .mobile-nav-items a {

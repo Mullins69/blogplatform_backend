@@ -17,23 +17,25 @@
         <div v-if="!successful">
         
                 <div class="form-group">
-                  <i class="fas fa-user"></i>
-                    <label class="form-label" id="nameLabel" for="name"></label>
+               
+                    <label class="form-label" id="nameLabel" for="name">Username:</label>
+                      <!-- <span class="icons"><i class="fas fa-user"></i></span>    -->
                     <Field type="text" class="form-control" id="fullname" name="fullname" placeholder="Username" tabindex="1"  />
                     <ErrorMessage name="fullname" class="error-feedback" />
                 </div>
 
                 <div class="form-group">
-                  <i class="fas fa-envelope"></i>
-                    <label class="form-label" id="emailLabel" for="email"></label>
+                  
+                    <label class="form-label" id="emailLabel" for="email">Email Address:</label>
+                     <!-- <span class="icons"><i class="fas fa-envelope"></i></span>    -->
                     <Field type="email" class="form-control" id="email" name="email" placeholder="Email Address" tabindex="2" />
                     <ErrorMessage name="email" class="error-feedback" />
                 </div>
 
 
                 <div class="form-group">
-                  <i class="fas fa-lock"></i>
-                    <label class="form-label" id="subjectLabel" for="sublect"></label>
+                    <label class="form-label" id="subjectLabel" for="sublect">Password:</label>
+               <!-- <span class="icons"><i class="fas fa-lock"></i></span>    -->
                     <Field type="text" class="form-control" id="password" name="password" placeholder="Password" tabindex="3"/>
                     <ErrorMessage name="password" class="error-feedback" />
                 </div>
@@ -161,10 +163,27 @@ export default {
 </script>
 
 <style scoped>
+
+.form-label{
+
+/* width: 333px;
+height: 44px; */
+
+font-family: 'Inter';
+font-style: italic;
+font-weight: 600;
+font-size: 100%;
+/* line-height: 44px; */
+/* identical to box height */
+
+
+color: #000000;
+}
+
 .signUp_btn{
   font-family: 'Inter';
   font-style: italic;
-  margin-top: 10px;
+  margin-top: 20px;
 font-size: 10px;
   color: #000000;
 }
@@ -344,18 +363,18 @@ h1.headin{
     display: block;
     border-radius: 0.25rem;
     width: 100%;
-    height: 48px;
+    /* height: 48px; */
     padding: 10px 24px;
     font-size: 15px;
     font-weight: 400;
     /* border-radius: 25px; */
-    line-height: 1.6;
+    /* line-height: 1.6; */
     color: #333;
     background-color: #fff;
     background-image: none;
     border: solid 1px black;
- 
-  
+  position: relative;
+  /* margin-top: 20px; */
 }
 
 

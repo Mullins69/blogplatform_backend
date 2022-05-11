@@ -104,7 +104,7 @@ export default {
         this.email = res.data.email
         this.role = res.data.role
         this.fullname = res.data.fullname
-        this.password = res.data.password
+        // this.password = res.data.password
       })
       .catch(err => {
         console.error(err); 
@@ -127,7 +127,7 @@ export default {
         body: JSON.stringify({
            email: this.email,
            fullname: this.fullname,
-           password: this.password,
+          //  password: this.password,
         }),
         headers: {
           "Content-Type": "application/json",

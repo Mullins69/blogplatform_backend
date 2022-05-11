@@ -1,4 +1,6 @@
 <template>
+<div class="container">
+
     <div id="card">
     <div id="card-content">
       <div id="card-title">
@@ -41,6 +43,7 @@
       </Form>
     </div>
   </div>
+</div>
  
 </template>
 
@@ -111,6 +114,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+}
 .signin{
     font-family: 'Inter';
 font-style: italic;
@@ -206,9 +213,9 @@ height: 44px;
 
 font-family: 'Inter';
 font-style: italic;
-font-weight: 700;
-font-size: 20px;
-line-height: 44px;
+font-weight: 600;
+font-size: 100%;
+/* line-height: 44px; */
 /* identical to box height */
 
 
@@ -263,7 +270,7 @@ h1.headin{
     font-size: 15px;
     font-weight: 400;
  
-    line-height: 1.6;
+    /* line-height: 1.6; */
     color: #333;
     background-color: #fff;
     background-image: none;
