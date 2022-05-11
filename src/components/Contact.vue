@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea  name="textarea"  placeholder="Your message"  required  v-model="message"  class="shadow"  ></textarea>
+              <textarea  name="textarea"  placeholder="Your message"  required   class="shadow"  v-model="message" ></textarea>
             </div>
             <div class="form-button">
               <button :disabled="loading" type="submit" class="btn btn-mod btn-border btn-large">
@@ -53,9 +53,10 @@ export default {
         fetch("https://blogplatapi.herokuapp.com/contact", {
           method: "POST",
           body: JSON.stringify({
-            name:this.email,
+            name:this.name,
             email: this.email,
             message: this.message,
+            subject: "Blog Contact"
           }),
           headers: {
             "Content-type": "application/json; charset=UTF-8",
