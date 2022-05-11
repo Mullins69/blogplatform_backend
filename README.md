@@ -39,7 +39,7 @@ Start the server
 ## Config Variables
 To run this project, you will need to add the following variables to your env file
  - .env
-    - `DBURL,
+    - `DBURL`
     - `JWT_SECRET_KEY`
 For contact routes (work in progress)
     - `MAIL`
