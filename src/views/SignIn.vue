@@ -123,6 +123,8 @@ color: #000000;
 #card{
     display:flex;
     justify-content:center;
+         margin-top: 50px;
+
     
 }
     a {

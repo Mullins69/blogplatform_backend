@@ -52,7 +52,7 @@
                    <div class="signUp_btn">
               <h6> Already have an account?   <router-link :to="{ name: 'SignIn'}">Login</router-link></h6>      
           </div>
-                  <h4 class="para_button">By  clicking  the Sign Up button, you agree to our <span class="terms_privacy">Terms & Conditions</span> , and <span class="terms_privacy">Privacy Policy..</span> </h4>
+                  <!-- <h4 class="para_button">By  clicking  the Sign Up button, you agree to our <span class="terms_privacy">Terms & Conditions</span> , and <span class="terms_privacy">Privacy Policy..</span> </h4> -->
                 <div class="form-group">
                   <div v-if="message" class="alert alert-danger" role="alert">
                       {{message}}
@@ -188,6 +188,7 @@ color: #000000;
  .container{
      display: grid; 
      justify-content:center;
+     margin-top: 50px;
 
  }
 .desciption_create{
