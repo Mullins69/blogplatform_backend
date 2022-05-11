@@ -8,7 +8,7 @@
  <div id="card">
     <div id="card-content">
       <div id="card-title">
-        <h1>Create Account</h1>
+        <h1 class="create_account">Create Account</h1>
         <h3 class="desciption_create">It’s free & hardly takes more than 30 seconds.</h3>
         <!-- <div class="border"></div> -->
  
@@ -163,6 +163,15 @@ export default {
 </script>
 
 <style scoped>
+.create_account{
+      font-family: 'Inter';
+font-style: italic;
+font-weight: 500;
+font-size: 40px;
+line-height: 77px;
+
+color: #000000;
+}
 
 .form-label{
 
@@ -360,15 +369,14 @@ h1.headin{
 }
 
 .form-group .form-control {
-    display: block;
-    border-radius: 0.25rem;
+    
     width: 100%;
-    /* height: 48px; */
+    
+     border-radius:2px;
     padding: 10px 24px;
     font-size: 15px;
     font-weight: 400;
-    /* border-radius: 25px; */
-    /* line-height: 1.6; */
+
     color: #333;
     background-color: #fff;
     background-image: none;
@@ -379,7 +387,7 @@ h1.headin{
 
 
 .form-group .form-control:hover {
-	border: solid 1px#b68345;
+	border: solid 1px red;
 }
 
 
@@ -388,7 +396,7 @@ h1.headin{
     height: auto;
     padding: 13px 52px;
     font-size: 15px;
-    border-radius: 60px;
+    border-radius:2px;
     
 }
 

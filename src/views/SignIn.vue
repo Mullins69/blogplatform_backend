@@ -5,6 +5,7 @@
     <div id="card-content">
       <div id="card-title">
         <h1 class="signin">Login</h1>
+        <h3 class="slogan_login">Great to have you back!</h3>
         </div>
       <Form @submit="handleLogin" :validation-schema="schema">
  
@@ -117,6 +118,17 @@ export default {
 .container {
   display: flex;
   justify-content: center;
+}
+.slogan_login{
+    font-family: 'Inter';
+font-style: italic;
+font-weight: 300;
+font-size: 17px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: rgba(0, 0, 0, 0.5);
 }
 .signin{
     font-family: 'Inter';
@@ -269,7 +281,7 @@ h1.headin{
     padding: 10px 24px;
     font-size: 15px;
     font-weight: 400;
- 
+  border-radius:2px;
     /* line-height: 1.6; */
     color: #333;
     background-color: #fff;
@@ -281,7 +293,7 @@ h1.headin{
 
 
 .form-group .form-control:hover {
-	border: solid 1px#b68345;
+	border: solid 1px red;
 }
 
 
@@ -289,7 +301,7 @@ h1.headin{
     height: auto;
     padding: 13px 52px;
     font-size: 15px;
-    border-radius: 60px;
+     border-radius:2px;
     
 }
 
