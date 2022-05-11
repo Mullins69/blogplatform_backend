@@ -42,7 +42,7 @@
  
     <!-- edit modal -->
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="currentUser">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="!currentUser">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -53,11 +53,11 @@
         <form >
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="updatedUser.fullname">
+            <input type="text" class="form-control" id="recipient-name"  v-model="fullname">
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="updatedUser.email">
+            <input type="text" class="form-control" id="recipient-name"  v-model="email">
           </div>
           <!-- <div class="mb-3">
             <label for="message-text" class="col-form-label">Phone:</label>
@@ -67,7 +67,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn" @click.prevent="updateUser()" >SAVE</button>
+        <button type="button" class="btn" @click="updateUser" >SAVE</button>
       </div>
     </div>
   </div>
@@ -94,6 +94,7 @@ export default {
       email:"",
       fullname:"",
       role:"",
+      password:""
     }
   },
   computed: {
@@ -103,6 +104,7 @@ export default {
         this.email = res.data.email
         this.role = res.data.role
         this.fullname = res.data.fullname
+        this.password = res.data.password
       })
       .catch(err => {
         console.error(err); 
@@ -123,14 +125,14 @@ export default {
       fetch(`${url}`,{
         method: "PATCH",
         body: JSON.stringify({
-           email: this.updatedUser.email,
-           fullname: this.updatedUser.fullname,
-           password: this.updatedUser.password,
+           email: this.email,
+           fullname: this.fullname,
+           password: this.password,
         }),
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("user")).accessToken
+            JSON.parse(localStorage.getItem("user"))
           }`,
         },
       })
