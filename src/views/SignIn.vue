@@ -152,7 +152,7 @@ color: #000000;
 }
     a {
   text-decoration: none;
-    color: rgba(0, 0, 0, 0.5) !important;
+    /* color: rgba(0, 0, 0, 0.5) !important; */
   
 }
 .signUp{

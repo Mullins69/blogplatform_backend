@@ -251,7 +251,7 @@ margin-top: 300px;
 } */
 a {
    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5) !important;
+    /* color: rgba(0, 0, 0, 0.5) !important; */
 }
 
 .signUp{

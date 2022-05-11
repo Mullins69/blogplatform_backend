@@ -191,19 +191,7 @@ label {
   color: #fff;
   font-weight: 600;
 }
-.submit-btn {
-  min-width: 80px;
-  padding: 5px;
-  outline: none;
-  border: none;
-  background: whitesmoke;
-  color: #000;
-  transition: ease-in-out 500ms;
-}
-.submit-btn:hover {
-  background: transparent;
-  color: #fff;
-}
+
 .form-group {
   display: flex;
   justify-content: center;
