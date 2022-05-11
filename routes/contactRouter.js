@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
 
   var mailOptions = {
     from: email,
-    to: "mullinsatheem@gmail.com",
+    to: "blogplatlc@gmail.com",
     subject: `${subject}`,
     text: `Name: ${name}
 Email: ${email}
