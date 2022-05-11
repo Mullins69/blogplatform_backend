@@ -41,8 +41,8 @@ To run this project, you will need to add the following variables to your env fi
  - .env
     - `DBURL`
     - `JWT_SECRET_KEY`
-For contact routes (work in progress)
-    - `MAIL`
+
+    - `MAIL` For contact routes (work in progress)
     - `PASS`
 
 ## Acknowledgements
