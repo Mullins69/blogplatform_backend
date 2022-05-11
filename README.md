@@ -39,10 +39,10 @@ Start the server
 ## Config Variables
 To run this project, you will need to add the following variables to your env file
  - .env
-    - `DBURL`
-    - `JWT_SECRET_KEY`
-    - `MAIL`
-    - `PASS`
+    - `DBURL` (Database url)
+    - `JWT_SECRET_KEY` (jwt key)
+    - `MAIL` (your email address , ps CREATE A DIFFERENT EMAIL)
+    - `PASS` (passsword to that email)
 
 ## Acknowledgements
  - [NodeJs](https://nodejs.org/en/)
