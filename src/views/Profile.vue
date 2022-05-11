@@ -59,10 +59,10 @@
             <label for="message-text" class="col-form-label">Email:</label>
             <input type="text" class="form-control" id="recipient-name"  v-model="email">
           </div>
-          <!-- <div class="mb-3">
-            <label for="message-text" class="col-form-label">Phone:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="password">
-          </div> -->
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Role:</label>
+            <input type="text" class="form-control" id="recipient-name"  v-model="role">
+          </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -123,11 +123,11 @@ export default {
     async updateUser() {
        try {
       fetch(`${url}`,{
-        method: "PATCH",
+        method: "PUT",
         body: JSON.stringify({
            email: this.email,
            fullname: this.fullname,
-          //  password: this.password,
+           role: this.role,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -139,8 +139,8 @@ export default {
       .then((res) => res.json())
       .then(() => {
         alert("Your profile has been updated!");
-        this.$store.dispatch("auth/logout");
-        this.$router.push("/Login")
+        // this.$store.dispatch("auth/logout");
+        this.$router.push("/Profile")
       });
     } catch (err) {
       console.error(err)
@@ -161,7 +161,7 @@ export default {
         await axios.delete(new_url, headers).then(() => {
           alert("Profile has been deleted successfully");
           this.$store.dispatch("auth/logout");
-          this.$router.push("/")
+          this.$router.push("/Profile")
         });
       } catch(err) {
         console.error(err);
