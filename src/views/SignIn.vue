@@ -208,8 +208,8 @@ text-decoration-line: none;
 
 .form-label{
 
-width: 333px;
-height: 44px;
+/* width: 333px;
+height: 44px; */
 
 font-family: 'Inter';
 font-style: italic;
@@ -263,9 +263,9 @@ h1.headin{
 
 .form-group .form-control {
    display: block;
- 
+/*  
     width: 100%;
-    height: 48px;
+    height: 48px; */
     padding: 10px 24px;
     font-size: 15px;
     font-weight: 400;
