@@ -4,6 +4,8 @@ const app = express();
 const cors = require("cors");
 const userRoute = require("./routes/userRouter")
 const postRoute = require("./routes/postRouter")
+const contactRoute = require("./routes/contactRouter");
+
 const mongoose = require("mongoose");
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true });
 const db = mongoose.connection;
@@ -19,6 +21,7 @@ app.get('/', (req, res, next) =>{
 })
 app.use('/users', userRoute)
 app.use('/posts', postRoute)
+app.use("/contact", contactRoute);
 
 
 app.set("port", process.env.PORT || 3000);
