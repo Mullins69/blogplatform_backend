@@ -42,7 +42,7 @@
  
     <!-- edit modal -->
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="currentUser">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -53,11 +53,11 @@
         <form >
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="fullname">
+            <input type="text" class="form-control" id="recipient-name"  v-model="updatedUser.fullname">
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="recipient-name"  v-model="email">
+            <input type="text" class="form-control" id="recipient-name"  v-model="updatedUser.email">
           </div>
           <!-- <div class="mb-3">
             <label for="message-text" class="col-form-label">Phone:</label>
@@ -130,7 +130,7 @@ export default {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("customer")).accessToken
+            JSON.parse(localStorage.getItem("user")).accessToken
           }`,
         },
       })

@@ -9,13 +9,13 @@
     <div class="nav-items">
       
         <router-link   @click="toggleNav"   to="/">Home</router-link>
-        <router-link   @click="toggleNav"  v-if="currentUser"  :to="{ name: 'Profile' }">Profile</router-link>
+        <router-link   @click="toggleNav"  v-if="currentUser"  to="Profile">Profile</router-link>
       
       
-        <router-link  @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignUp' }">Sign Up</router-link>
+        <router-link  @click="toggleNav" v-if="!currentUser" to="SignUp">Sign Up</router-link>
       
       
-        <router-link  @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignIn' }">Sign In</router-link>
+        <router-link  @click="toggleNav" v-if="!currentUser" to="SignIn">Sign In</router-link>
          <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
       
     </div>
@@ -26,20 +26,20 @@
     </div>
     <div class="mobile-nav-items">
       
-        <router-link :to="{ path: '/' }" class="mobile">Home</router-link>
+        <router-link to="/" class="mobile">Home</router-link>
     
     
-        <router-link @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignUp' }" class="mobile"
+        <router-link @click="toggleNav" v-if="!currentUser" to="SignUp" class="mobile"
           >Sign Up</router-link
         >
   
       
-        <router-link @click="toggleNav" v-if="!currentUser" :to="{ name: 'SignIn' }" class="mobile"
+        <router-link @click="toggleNav" v-if="!currentUser" to="SignIn" class="mobile"
           >Sign In</router-link
         >
       
       
-        <router-link @click="toggleNav" v-if="currentUser" :to="{ name: 'Profile' }" class="mobile"
+        <router-link @click="toggleNav" v-if="currentUser" to="Profile" class="mobile"
           >Profile</router-link
         >
     
@@ -187,15 +187,16 @@ nav a.router-link-exact-active {
     gap: 1rem;
     width: 50%;
     height: 100%;
-    background-color: #e5e5e5;
+    background-color: rgb(24, 24, 24);
     z-index: 3;
     transition: all 0.5s;
+    
   }
   .mobile-nav-items a {
     text-decoration: none;
     font-size: 15px;
     font-weight: 700;
-    color:black;
+    color:white;
     width: 80%;
     text-align: center;
   }

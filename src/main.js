@@ -21,4 +21,4 @@ collapse.forEach((element) => {
     mobile.classList.toggle("active");
     menu_btn.classList.remove("active");
   });
-});s
+});
