@@ -1,6 +1,6 @@
 <template>
   <h1>home</h1>
-   <!-- <Contact /> -->
+   <Contact />
 </template>
 
 <script>

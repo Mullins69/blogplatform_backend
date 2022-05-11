@@ -11,7 +11,7 @@ export default {
 <style scoped>
 footer {
   width: 100%;
-  position: relative;
+  position: absolute;
   bottom: -35px;
   display: flex;
   justify-content: center;

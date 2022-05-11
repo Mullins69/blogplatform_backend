@@ -43,12 +43,15 @@
         </div>
       </Form>
     </div>
+
+
   </div>
 </div>
- 
+ <Footer/>
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
 import Loader from "../components/Loader.vue"
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
@@ -56,6 +59,7 @@ import * as yup from "yup";
 export default {
   name: "Login",
   components: {
+        Footer,
     Form,
     Field,
     ErrorMessage,

@@ -100,7 +100,8 @@ export default {
         .string()
         .required("Password is required!")
         .min(6, "Must be at least 6 characters!")
-        .max(40, "Must be maximum 40 characters!")
+        .max(40, "Must be maximum 40 characters!"),
+        //  password: yup.string().required("Password is required")
     });
     return {
       successful: false,

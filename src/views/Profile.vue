@@ -176,13 +176,13 @@ export default {
 
 <style scoped>
 .jumbotron {
-        font-family: 'Inter';
-font-style: italic;
-font-weight: 500;
-font-size: 30px;
-line-height: 77px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 77px;
 
-color: #000000;
+  color: #000000;
 }
 /* .buttons{
   display: flex;
