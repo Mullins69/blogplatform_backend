@@ -7,8 +7,17 @@ var ObjectId = require('mongodb').ObjectId;
 
 const { getPost } = require("../middleware/finders");
 
-//getting all posts
-router.get("/", auth, async (req, res, next) => {
+// GET all Posts
+router.get("/", async (req, res) => {
+  try {
+    const pos = await Post.find();
+    res.status(201).send(pos);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+//getting all posts from single user
+router.get("/singleuser", auth, async (req, res, next) => {
     try {
         const post = await Post.find({ user_id: { $regex: req.user._id } });
         res.status(201).json(post);
@@ -16,7 +25,10 @@ router.get("/", auth, async (req, res, next) => {
         res.status(500).json({ message: error.message });
     }
 });
-
+// GET one post
+router.get("/:id", getPost, (req, res, next) => {
+  res.send(res.post);
+});
 //Adds a new post
 router.post("/", [auth], async (req, res, next) => {
     let { details, title, img ,category} = req.body;
