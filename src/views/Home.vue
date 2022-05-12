@@ -2,11 +2,16 @@
   <div class="container">
 
   </div>
+  <Contact/>
 </template>
 
 <script>
+import Contact from "@/components/Contact.vue";
 export default {
-
+    name: "HomeView",
+  components: {
+    Contact,
+}
 }
 </script>
 
@@ -15,7 +20,7 @@ export default {
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
-  border-top: 1px solid black
+  margin-top: 150px;
+
 }
 </style>
