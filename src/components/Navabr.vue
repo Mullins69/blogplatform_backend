@@ -218,9 +218,11 @@ nav a.router-link-exact-active {
   }
   .menu.active:before {
     transform: rotate(45deg) translate(5.5px, 6px);
+        background-color: white;
   }
   .menu.active:after {
     transform: rotate(-45deg) translate(5.5px, -6px);
+        background-color: white;
   }
   .menu.active .bar {
     transform: translate(-25px, 0px);
