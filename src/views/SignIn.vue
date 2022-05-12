@@ -150,23 +150,17 @@ color: #000000;
 
     
 }
-    a {
+ a{
   text-decoration: none;
     /* color: rgba(0, 0, 0, 0.5) !important; */
   
 }
-.signUp{
-    padding-top: 30px;
-    font-family: 'Inter';
-/* font-style: italic; */
-font-weight: 300;
-font-size: 36px;
-line-height: 44px;
-/* identical to box height */
-
-text-decoration-line: none;
-
-
+.signUp h6{
+  font-family: 'Inter';
+  font-weight: 450;
+  font-size: 13px;
+  line-height: 60px;
+  text-decoration-line: none;
 }
 
 
