@@ -1,8 +1,24 @@
 <template>
   <div class="container">
+    <div class="row">
+        <div class="col-12">
+          <h3>Filter</h3>
+          <select
+            v-model="selected"
+            class="form-select"
+            aria-label="Default select example"
+          >
+
+            <option selected value="">Display All</option>
+            <option value="sport">Sport</option>
+            <option value="food">Food</option>
+            <option value="politics">Politics</option>
+          </select>
+        </div>
+      </div>
     <div class="row" v-if="blogs">
       <div class="col">
-        <div class="post" v-for="blog of blogs" :key="blog._id">
+        <div class="post" v-for="blog of filterBlogs" :key="blog._id">
           <div class="blog_post" v-for="data of blog.post" :key="data._id">
             <div class="post_iamge">
               <img :src="data.img" alt="PIC DIDNT LOAD" />
@@ -44,6 +60,7 @@ export default {
   data() {
     return {
       blogs: null,
+      selected: "",
     };
   },
   mounted() {
@@ -61,6 +78,37 @@ export default {
         alert(err);
         console.log(err);
       });
+  },computed: {
+    filterBlogs: function () {
+      let filtered = this.blogs
+      if (this.selected == '') {
+          filtered = filtered.filter((blogs) => {
+           return blogs.category.match(this.selected) ;
+          
+        });
+        // if(this.search){
+        //   filtered = filtered.filter((blogs) =>{
+        //     return blogs.title.match(this.search)
+        //   })
+        // }
+        return filtered
+      }
+      if (this.selected) {
+        filtered = filtered.filter((blogs) => {
+           return blogs.category.match(this.selected) ;
+          
+        });
+        // if(this.search){
+        //   filtered = filtered.filter((blogs) =>{
+        //     return blogs.title.match(this.search)
+        //   })
+        // }
+        return filtered
+        
+      }
+  
+      
+    },
   },
 };
 </script>
