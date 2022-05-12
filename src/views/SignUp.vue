@@ -185,12 +185,12 @@ margin-top: 5px;
 color: #000000;
 }
 
-.signUp_btn{
+.signUp_btn h6{
   font-family: 'Inter';
-  /* font-style: italic; */
-  margin-top: 20px;
-font-size: 10px;
-  color: #000000;
+  font-weight: 450;
+  font-size: 13px;
+  line-height: 60px;
+  text-decoration-line: none;
 }
 .terms_privacy{
   color: red

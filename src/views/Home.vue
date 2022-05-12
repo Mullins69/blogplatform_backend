@@ -77,10 +77,10 @@ export default {
   border: 6px solid white;
   border-radius: 3px;
   padding-bottom: 23px;
-  margin: 20px;
-  box-shadow: 8px 8px 15px #e4e4e4;
+  margin: 50px;
+  box-shadow: 2px 2px 8px #e4e4e4;
   text-align: left;
-
+ 
 }
 
 img {
@@ -118,4 +118,6 @@ img {
   color: red;
   border-bottom: 3px solid red;
 }
+
+
 </style>
