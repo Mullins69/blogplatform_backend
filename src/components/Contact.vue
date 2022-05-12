@@ -27,17 +27,22 @@
             </div>
           </form>
         </div>
+    <div class="footer-copyright">
+     <Footer/>
+    </div>
       </div>
     </div>
-    <!-- <div class="footer-copyright">
-      <h6 class="copyright">Copyright @  The <span style="color:red">B</span>log 2022. All rights reserved.</h6>
-    </div> -->
   </footer>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
 export default {
   name: "ContactView",
+  components:{
+    Footer
+  },
+
   data() {
     return {
       name:"",
@@ -74,9 +79,9 @@ export default {
 </script>
 
 <style scoped>
-/* #contact-page{
-  position: absolute;
-} */
+#contact-page{
+  position: inherit;
+}
 .btn-mod.btn-large {
     height: auto;
     padding: 10px 30px;
