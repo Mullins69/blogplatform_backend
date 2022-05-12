@@ -220,6 +220,8 @@ label {
   flex-direction: column;
   padding: 0;
   margin: 0;
+    border-radius:2px;
+
 }
 #contact-form input,
 textarea {
@@ -236,10 +238,14 @@ textarea::placeholder {
 #contact-form input {
   height: 40px;
   padding: 10px;
+  border-radius:2px;
 }
 #contact-form textarea {
   height: 60px;
   padding: 10px;
+    border-radius:2px;
+
+
 }
 @media only screen and (max-width: 770px) {
   .contact-container {
