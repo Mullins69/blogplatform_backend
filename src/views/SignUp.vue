@@ -175,18 +175,10 @@ color: #000000;
 }
 
 .form-label{
-
-/* width: 333px;
-height: 44px; */
-
 font-family: 'Inter';
-/* font-style: italic; */
 font-weight: 600;
 font-size: 100%;
-/* line-height: 44px; */
-/* identical to box height */
-
-
+margin-top: 5px;
 color: #000000;
 }
 
@@ -372,9 +364,9 @@ h1.headin{
 .form-group .form-control {
     
     width: 100%;
-    
+    height: 40px;
      border-radius:2px;
-    padding: 10px 24px;
+    padding: 10px;
     font-size: 15px;
     font-weight: 400;
 

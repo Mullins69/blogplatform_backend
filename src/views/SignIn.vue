@@ -223,19 +223,11 @@ text-decoration-line: none;
 
 
 .form-label{
-
-/* width: 333px;
-height: 44px; */
-
 font-family: 'Inter';
-/* font-style: italic; */
 font-weight: 600;
 font-size: 100%;
-/* line-height: 44px; */
-/* identical to box height */
-
-
 color: #000000;
+margin-top: 5px;
 }
 
 
@@ -282,7 +274,8 @@ h1.headin{
 /*  
     width: 100%;
     height: 48px; */
-    padding: 10px 24px;
+      height: 40px;
+    padding: 10px ;
     font-size: 15px;
     font-weight: 400;
   border-radius:2px;

@@ -21,6 +21,5 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 150px;
-
 }
 </style>
