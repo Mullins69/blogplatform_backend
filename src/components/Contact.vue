@@ -28,7 +28,7 @@
           </form>
         </div>
     <div class="footer-copyright">
-     <Footer/>
+     <h5 class="foot-cop">Copyright @  The Blog 2022. All rights reserved.</h5>
     </div>
       </div>
     </div>
@@ -79,9 +79,11 @@ export default {
 </script>
 
 <style scoped>
-#contact-page{
-  position: inherit;
+.foot-cop{
+    font-size: 10px;
+  font-weight: 600;
 }
+
 .btn-mod.btn-large {
     height: auto;
     padding: 10px 30px;
@@ -144,6 +146,7 @@ export default {
   align-items: center;
   flex-direction: column;
   padding: 8px;
+  width: 100%;
 }
 .copyright {
   color: #fff;
@@ -157,12 +160,13 @@ export default {
 footer {
   display: flex;
   width: 100%;
-  background: rgba(0, 0, 0, 0.95);
+  background: black;
   flex-wrap: wrap;
   flex-direction: column;
   color: #fff;
   justify-content: center;
   align-items: center;
+  /* position: absolute; */
 }
 .contact-container {
   margin: 2rem 0;

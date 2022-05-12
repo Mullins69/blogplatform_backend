@@ -74,9 +74,10 @@
 </div>
 
 
-
+<Footer/>
 </template>
 <script>
+import Footer from "@/components/Footer.vue";
 const url = "https://blogplatapi.herokuapp.com/users";
 import authHeader from "../services/auth-header";
 const API_URL = "https://blogplatapi.herokuapp.com/users/oneuser";
@@ -84,6 +85,10 @@ import axios from "axios";
 export default {
   
   name: "Profile",
+    components: {
+        Footer,
+
+  },
     data() {
     return {
       // updatedUser:{

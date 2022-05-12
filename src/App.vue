@@ -3,7 +3,7 @@
 <main>
   <router-view :key="$route.fullPath" :services="services" />
  </main>
-  <Footer/>
+  <!-- <Footer/> -->
 </template>
 
 <script>
