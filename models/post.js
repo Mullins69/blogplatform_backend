@@ -13,6 +13,10 @@ const postSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
+    category:{
+        type: String
+    }
+    ,
     created_date: {
         type: Date,
         required: false,

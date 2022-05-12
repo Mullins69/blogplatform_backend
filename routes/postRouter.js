@@ -40,6 +40,7 @@ router.post("/", [auth], async (req, res, next) => {
         details,
         username,
         user_id,
+        category
     })
     try {
         posts.post.push({
