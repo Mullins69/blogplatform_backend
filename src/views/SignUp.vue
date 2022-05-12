@@ -166,7 +166,7 @@ export default {
 <style scoped>
 .create_account{
       font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 500;
 font-size: 40px;
 line-height: 77px;
@@ -180,7 +180,7 @@ color: #000000;
 height: 44px; */
 
 font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 600;
 font-size: 100%;
 /* line-height: 44px; */
@@ -192,7 +192,7 @@ color: #000000;
 
 .signUp_btn{
   font-family: 'Inter';
-  font-style: italic;
+  /* font-style: italic; */
   margin-top: 20px;
 font-size: 10px;
   color: #000000;
@@ -222,7 +222,7 @@ color: #000000;
  }
 .desciption_create{
   font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 300;
 font-size: 17px;
 line-height: 29px;
@@ -234,7 +234,7 @@ color: rgba(0, 0, 0, 0.5);
 .signup{
   
 font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 500;
 font-size: 40px;
 line-height: 77px;
@@ -277,7 +277,7 @@ body {
 #card-title {
  
   font-family: 'Inter';
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: 300;
   font-size: 48px;
   line-height: 58px;

@@ -1,5 +1,5 @@
 <template>
-<ClipLoader :color="white"/>
+<ClipLoader color="black"/>
 </template>
 
 <script>

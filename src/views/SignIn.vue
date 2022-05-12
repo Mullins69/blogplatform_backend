@@ -125,7 +125,7 @@ export default {
 }
 .slogan_login{
     font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 300;
 font-size: 17px;
 line-height: 29px;
@@ -136,7 +136,7 @@ color: rgba(0, 0, 0, 0.5);
 }
 .signin{
     font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 500;
 font-size: 40px;
 line-height: 77px;
@@ -158,7 +158,7 @@ color: #000000;
 .signUp{
     padding-top: 30px;
     font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 300;
 font-size: 36px;
 line-height: 44px;
@@ -228,7 +228,7 @@ text-decoration-line: none;
 height: 44px; */
 
 font-family: 'Inter';
-font-style: italic;
+/* font-style: italic; */
 font-weight: 600;
 font-size: 100%;
 /* line-height: 44px; */
