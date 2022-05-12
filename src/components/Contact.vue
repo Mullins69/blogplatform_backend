@@ -79,7 +79,7 @@ export default {
 } */
 .btn-mod.btn-large {
     height: auto;
-    padding: 13px 52px;
+    padding: 10px 30px;
     font-size: 15px;
      border-radius:2px;
     
