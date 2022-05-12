@@ -12,17 +12,13 @@
                 {{ data.title }}
               </h2>
             </div>
-            <div class="post_details">
+            <!-- <div class="post_details">
               <p>
                 {{ data.details }}
               </p>
-            </div>
+            </div> -->
           </div>
-          <router-link
-            class="btn btn-primary"
-            :to="{ name: 'readmore', params: { id: blog._id } }"
-            >Read More</router-link
-          >
+          <router-link class="readmore" :to="{ name: 'readmore', params: { id: blog._id } }" >Read More ...</router-link>
         </div>
       </div>
     </div>
@@ -83,6 +79,8 @@ export default {
   padding-bottom: 23px;
   margin: 20px;
   box-shadow: 8px 8px 15px #e4e4e4;
+  text-align: left;
+
 }
 
 img {
@@ -94,7 +92,7 @@ img {
   font-family: "Inter";
   font-weight: 550;
   font-size: 35px;
-  line-height: 70px;
+  line-height: 60px;
   color: #000000;
 }
 
@@ -102,7 +100,22 @@ img {
   font-family: "Inter";
   font-weight: 500;
   font-size: 15px;
-  line-height: 50px;
+  line-height: 30px;
+  color:#6c757d!important;
+}
+
+.readmore{
+  text-decoration: none;
+  border-bottom: 3px solid #000;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
   color: #000000;
+}
+
+.readmore:hover{
+  color: red;
+  border-bottom: 3px solid red;
 }
 </style>
