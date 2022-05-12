@@ -1,24 +1,33 @@
 <template>
   <div class="container">
     <div class="row" v-if="blogs">
-    <div  v-for="blog of blogs" :key="blog._id">
-  <div class="col-3" v-for="data of blog.post" :key="data._id">
-      <h3>
-      {{data.title}}
-      </h3>
-
-      <p>
-        {{data.details}}
-      </p>
-      <img :src="data.img" alt="PIC DIDNT LOAD" >
+      <div class="col">
+        <div class="post" v-for="blog of blogs" :key="blog._id">
+          <div class="blog_post" v-for="data of blog.post" :key="data._id">
+            <div class="post_iamge">
+              <img :src="data.img" alt="PIC DIDNT LOAD" >
+            </div>
+            <div class="post_title">
+              <h2>
+              {{data.title}}
+              </h2>
+            </div>
+            <div class="post_details">
+              <p>
+                {{data.details}}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-    </div>
-      
-    </div>
+
+
+
     <div class="row" v-else>
       <h1>
-        Loading blogs...
+        <Loader/>
       </h1>
     </div>
   </div>
@@ -26,11 +35,13 @@
 </template>
 
 <script>
+import Loader from "../components/Loader.vue"
 import Contact from "@/components/Contact.vue";
 export default {
     name: "HomeView",
   components: {
     Contact,
+    Loader
 },
 data(){
   return{
@@ -65,6 +76,36 @@ mounted() {
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-top: 150px;
+}
+.post{
+   border: 6px solid white;
+  border-radius:3px;
+  padding-bottom: 23px;
+  margin: 20px;
+    box-shadow:8px 8px 15px #e4e4e4; 
+}
+
+img{
+  width: 100%;
+  object-fit:cover ;
+}
+
+.post_title h2{
+  font-family: 'Inter';
+  font-weight: 550;
+  font-size: 35px;
+  line-height: 70px;
+  color: #000000;
+}
+
+.post_details p{
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 50px;
+  color: #000000;
 }
 </style>
