@@ -5,51 +5,52 @@
         <div class="post" v-for="blog of blogs" :key="blog._id">
           <div class="blog_post" v-for="data of blog.post" :key="data._id">
             <div class="post_iamge">
-              <img :src="data.img" alt="PIC DIDNT LOAD" >
+              <img :src="data.img" alt="PIC DIDNT LOAD" />
             </div>
             <div class="post_title">
               <h2>
-              {{data.title}}
+                {{ data.title }}
               </h2>
             </div>
             <div class="post_details">
               <p>
-                {{data.details}}
+                {{ data.details }}
               </p>
             </div>
           </div>
+          <router-link
+            class="btn btn-primary"
+            :to="{ name: 'readmore', params: { id: blog._id } }"
+            >Read More</router-link
+          >
         </div>
       </div>
     </div>
 
-
-
-
     <div class="row" v-else>
       <h1>
-        <Loader/>
+        <Loader />
       </h1>
     </div>
   </div>
-  <Contact/>
+  <Contact />
 </template>
 
 <script>
-import Loader from "../components/Loader.vue"
+import Loader from "../components/Loader.vue";
 import Contact from "@/components/Contact.vue";
 export default {
-    name: "HomeView",
+  name: "HomeView",
   components: {
     Contact,
-    Loader
-},
-data(){
-  return{
-    blogs: null
-  }
-}
-,
-mounted() {
+    Loader,
+  },
+  data() {
+    return {
+      blogs: null,
+    };
+  },
+  mounted() {
     fetch("https://blogplatapi.herokuapp.com/posts", {
       method: "GET",
       headers: {
@@ -58,21 +59,17 @@ mounted() {
     })
       .then((response) => response.json())
       .then((json) => {
-       
-           this.blogs = json
-     
-       
+        this.blogs = json;
       })
       .catch((err) => {
         alert(err);
         console.log(err);
       });
   },
-}
+};
 </script>
 
 <style scoped>
-
 .container {
   display: flex;
   justify-content: center;
@@ -80,29 +77,29 @@ mounted() {
   flex-direction: column;
   margin-top: 150px;
 }
-.post{
-   border: 6px solid white;
-  border-radius:3px;
+.post {
+  border: 6px solid white;
+  border-radius: 3px;
   padding-bottom: 23px;
   margin: 20px;
-    box-shadow:8px 8px 15px #e4e4e4; 
+  box-shadow: 8px 8px 15px #e4e4e4;
 }
 
-img{
+img {
   width: 100%;
-  object-fit:cover ;
+  object-fit: cover;
 }
 
-.post_title h2{
-  font-family: 'Inter';
+.post_title h2 {
+  font-family: "Inter";
   font-weight: 550;
   font-size: 35px;
   line-height: 70px;
   color: #000000;
 }
 
-.post_details p{
-  font-family: 'Inter';
+.post_details p {
+  font-family: "Inter";
   font-weight: 500;
   font-size: 15px;
   line-height: 50px;

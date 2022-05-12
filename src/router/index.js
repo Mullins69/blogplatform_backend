@@ -4,12 +4,18 @@ import SignIn from '../views/SignIn.vue'
 import SignUp from '../views/SignUp.vue'
 import Success from '../views/Success.vue'
 import Profile from '../views/Profile.vue'
-
+import ReadMore from '../components/ReadMore.vue'
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/blog/:id',
+    name: 'readmore',
+    component: ReadMore,
+    props: true
   },
   {
     path: '/SignIn',
