@@ -5,6 +5,8 @@ import SignUp from '../views/SignUp.vue'
 import Success from '../views/Success.vue'
 import Profile from '../views/Profile.vue'
 import ReadMore from '../components/ReadMore.vue'
+import AdminDashBoard from '../views/AdminDashBoard.vue'
+
 const routes = [
   {
     path: '/',
@@ -36,7 +38,12 @@ const routes = [
     path: '/Profile',
     name: 'Profile',
     component: Profile
-  }
+  },
+  {
+    path: '/AdminDashBoard',
+    name: 'AdminDashBoard',
+    component: AdminDashBoard
+  },
 ]
 
 const router = createRouter({

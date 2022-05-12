@@ -30,10 +30,7 @@
     
         
       </div>
-          <div class="col">
-          
-         
-        </div>
+   
     </div>
 
       <!-- <h1>MY BOOKINGS</h1> -->
@@ -42,6 +39,7 @@
  
     <!-- edit modal -->
   </div>
+<Footer/>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="!currentUser">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -74,7 +72,6 @@
 </div>
 
 
-<Footer/>
 </template>
 <script>
 import Footer from "@/components/Footer.vue";
