@@ -77,7 +77,7 @@
             <option value="sport">Sport</option>
             <option value="politics">Politics</option>
           </select>
-           <input type="text" placeholder="img link" v-model="img" required>
+           <input type="text" placeholder="img link" v-model=" thisimg" required>
             <input type="text" placeholder="details" v-model="details" required>
       </div>
      
