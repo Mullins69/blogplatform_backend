@@ -23,14 +23,8 @@
       </div>
     </div>
     <div class="row" v-if="blogs">
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        v-if="loggedIn == true"
-      >
-        Add Post
+      <button type="button" class="btn btn-mod btn-border btn-large" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="loggedIn == true">
+        Create new Blog
       </button>
       <div class="col">
         <div class="post" v-for="blog of filterBlogs" :key="blog._id">
@@ -210,6 +204,53 @@ export default {
 </script>
 
 <style scoped>
+
+.btn-mod.btn-large {
+    height: auto;
+    padding: 12px 51px;
+    font-size: 15px;
+    border-radius:2px;
+    
+}
+
+.btn-mod.btn-border {
+     color: black;
+    border: 1px solid #F50808;
+    background: #F50808;
+}
+
+.btn-mod, a.btn-mod {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 3px 12px;
+    color: #fff;
+    background: rgba(34,34,34, .9);
+    border: 1px solid transparent;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -moz-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -o-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -ms-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+}
+
+.btn-mod.btn-border:hover, .btn-mod.btn-border:active, .btn-mod.btn-border:focus, .btn-mod.btn-border:active:focus {
+   color: white;
+    border-color:white ;
+    outline: none;
+}
+
 .landing-section {
   width: 100%;
   display: flex;
