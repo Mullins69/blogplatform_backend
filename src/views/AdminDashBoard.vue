@@ -115,9 +115,9 @@ export default {
    
   },
   created() {
-    if (this.currentUser.role !== "admin") {
-      this.$router.push("/Profile")  
-    }
+    // if (this.currentUser.role !== "admin") {
+    //   // this.$router.push("/Profile")  
+    // }
   // },
   // methods:{
   //     changeBarberToEdit(barber){
