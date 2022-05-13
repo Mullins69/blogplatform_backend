@@ -28,8 +28,8 @@
         <div class="dropdown-container" tabindex="-1">
           <div class="three-dots"></div>
           <div class="dropdown">
-           <button class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Edit</button>
-           <button class="btn" id="delete"  @click="deleteUser" >Delete</button>
+           <button class="btn btn-danger" id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@getbootstrap">Edit</button>
+           <button class="btn btn-dark" id="delete"  @click="deleteUser" >Delete</button>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
 
 
 <!-- edit user -->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="currentUser">
+ <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="currentUser">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -78,7 +78,7 @@
 <script>
 
 const url = "https://blogplatapi.herokuapp.com/users";
-import authHeader from "../services/auth-header";
+// import authHeader from "../services/auth-header";
 const API_URL = "https://blogplatapi.herokuapp.com/users/oneuser";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
@@ -121,6 +121,7 @@ export default {
         body: JSON.stringify({
            email: this.email,
            fullname: this.fullname,
+           password: this.password,
            role: this.role,
         }),
         headers: {
