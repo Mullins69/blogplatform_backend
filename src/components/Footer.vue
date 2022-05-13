@@ -17,7 +17,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  min-height: 50px;
+  min-height: 70px;
   background-color: black;
   font-size: 10px;
   font-weight: 600;

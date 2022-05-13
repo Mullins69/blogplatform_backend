@@ -84,7 +84,7 @@ import Footer from "@/components/Footer.vue";
 import axios from "axios";
 export default {
   components: {
-    // Footer
+    Footer
   },
    data(){
           return {
