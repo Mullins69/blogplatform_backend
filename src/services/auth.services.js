@@ -22,7 +22,7 @@ class AuthService {
       fullname: user.fullname,
       email: user.email,
       password: user.password,
-      role: "reader"
+      // role: "reader"
     });
   }
 }

@@ -6,12 +6,12 @@
 
       <div class="employees" style="width:50%;">
         <h1>Barbers</h1>
-        <div v-for="barber in barbers" :key="barber.id">
+        <div >
           <div class="barberName" > 
             <div class="name" style="color:#b18044;font-size:20px;">
-              {{barber.barberName}}
-              <button @click="changeBarberToEdit(barber.barberName)" class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fas fa-edit" style="font-size:20px;"></i></button>
-              <button @click="changeBarberToEdit(barber.barberName)" class="btn" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt" style="font-size:20px;"></i></button>
+
+              <button class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fas fa-edit" style="font-size:20px;"></i></button>
+              <button  class="btn" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt" style="font-size:20px;"></i></button>
             </div>
 
           </div>
@@ -20,12 +20,12 @@
 
       <div class="clients" style="width:50%;">
           <h1>Registered Users</h1>
-          <div v-for="customer in customers" :key="customer.id">
+          <div >
             <div class="client" > 
               <div class="client_content" style="font-weight: 400;color:#b18044">
-                <div class="cname"> <h6 style="font-weight: bold;color:#b18044"> Name:</h6> {{customer.customername}}</div>
-                <div class="email"> <h6 style="font-weight: bold;color:#b18044"> Email:</h6> {{customer.email}}</div>
-                <div class="crole"> <h6 style="font-weight: bold;color:#b18044"> Role:</h6> {{customer.role}}</div>
+                <div class="cname"> <h6 style="font-weight: bold;color:#b18044"> Name:</h6> </div>
+                <div class="email"> <h6 style="font-weight: bold;color:#b18044"> Email:</h6> </div>
+                <div class="crole"> <h6 style="font-weight: bold;color:#b18044"> Role:</h6> </div>
                 <!-- <i class="fas fa-edit" style="font-size:20px;color:white;"></i>
                 <i class="fas fa-trash" style="font-size:20px;color:white;"></i> -->
               </div>
@@ -38,7 +38,7 @@
 
 
  <!-- edit barber -->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="this.currentUser" >
+ <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="this.currentUser" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -59,11 +59,11 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- delete modal barber -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentUser">
+<!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentUser">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -79,7 +79,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 </template>
 
 <script>
@@ -87,25 +87,25 @@ import axios from "axios";
 export default {
    data(){
             return {
-                customers:[],
-                barbers:[],
-                updatedBarber:{
-                  barberName:"",
-                },
-                barberToEdit: ''
+                // customers:[],
+                // barbers:[],
+                // updatedBarber:{
+                //   barberName:"",
+                // },
+                // barberToEdit: ''
                 
             }
         },
         mounted(){
-            fetch("https://barber-shopbackend.herokuapp.com/customers")
+            fetch("")
             .then(res => res.json())
             .then(data => this.customers = data)
             .catch(err => console.log(err.message))
 
-            fetch("https://barber-shopbackend.herokuapp.com/barbers")
-            .then(res => res.json())
-            .then(data => this.barbers = data)
-            .catch(err => console.log(err.message))
+            // fetch("")
+            // .then(res => res.json())
+            // .then(data => this.barbers = data)
+            // .catch(err => console.log(err.message))
 
         },
       computed: {
@@ -118,61 +118,61 @@ export default {
     if (this.currentUser.role !== "admin") {
       this.$router.push("/Profile")  
     }
-  },
-  methods:{
-      changeBarberToEdit(barber){
-        this.barberToEdit = barber
-      },
-      async updateBarber() {
-       try {
-      fetch(`https://barber-shopbackend.herokuapp.com/barbers/${this.barberToEdit}`,{
-        method: "PUT",
-        body: JSON.stringify({
-          barberName: this.updatedBarber.barberName,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("customer")).accessToken
-          }`,
-        },
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        if(data.message) return alert(data.message)
-        alert("Barber Name Updated!");
-        this.$store.dispatch("auth/logout");
-        this.$router.go()
-        this.$router.push("/AdminDashboard")
-      });
-    } catch (err) {
-      console.error(err)
-      }
-    },
-      async deleteBarber(){
-      const headers = {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("customer")).accessToken
-          }`,
-          },
-      };
-      const new_url ="https://barber-shopbackend.herokuapp.com/barbers/";
-      try {
-        await axios.delete(new_url + this.barberToEdit, headers, this.currentUser).then(() => {
-          alert("Barber has been deleted successfully");
-          this.$store.dispatch("auth/logout");
-          this.$router.go()
-        this.$router.push("/AdminDashboard")
-        });
-      } catch(err) {
-        console.error(err);
-      }
-    },
-  }
-}
+  // },
+  // methods:{
+  //     changeBarberToEdit(barber){
+  //       this.barberToEdit = barber
+  //     },
+  //     async updateBarber() {
+  //      try {
+  //     fetch(`https://barber-shopbackend.herokuapp.com/barbers/${this.barberToEdit}`,{
+  //       method: "PUT",
+  //       body: JSON.stringify({
+  //         barberName: this.updatedBarber.barberName,
+  //       }),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${
+  //           JSON.parse(localStorage.getItem("customer")).accessToken
+  //         }`,
+  //       },
+  //     })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data)
+  //       if(data.message) return alert(data.message)
+  //       alert("Barber Name Updated!");
+  //       this.$store.dispatch("auth/logout");
+  //       this.$router.go()
+  //       this.$router.push("/AdminDashboard")
+  //     });
+  //   } catch (err) {
+  //     console.error(err)
+  //     }
+  //   },
+  //     async deleteBarber(){
+  //     const headers = {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${
+  //           JSON.parse(localStorage.getItem("customer")).accessToken
+  //         }`,
+  //         },
+  //     };
+  //     const new_url ="https://barber-shopbackend.herokuapp.com/barbers/";
+  //     try {
+  //       await axios.delete(new_url + this.barberToEdit, headers, this.currentUser).then(() => {
+  //         alert("Barber has been deleted successfully");
+  //         this.$store.dispatch("auth/logout");
+  //         this.$router.go()
+  //       this.$router.push("/AdminDashboard")
+  //       });
+  //     } catch(err) {
+  //       console.error(err);
+  //     }
+  //   },
+  // }
+}}
 </script>
 
 <style scoped>

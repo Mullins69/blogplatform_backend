@@ -93,9 +93,10 @@ export default {
       this.loading = true;
       this.$store.dispatch("auth/login", user).then(
         (data) => {
-          if(data.role === 'admin'){
+          if(data.role === "admin"){
               this.loading = false;
               this.$router.push("/AdminDashBoard");
+              
           }
           else{
             this.loading = false;
