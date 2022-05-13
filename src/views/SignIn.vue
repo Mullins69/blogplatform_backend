@@ -50,16 +50,20 @@
  <Footer/>
 </template>
 
+
 <script>
 import Footer from "@/components/Footer.vue";
-import Loader from "../components/Loader.vue"
+import Loader from "../components/Loader.vue";
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import axios from "axios";
+
+import authHeader from "../services/auth-header";
 
 export default {
   name: "Login",
   components: {
-        Footer,
+    Footer,
     Form,
     Field,
     ErrorMessage,
@@ -67,15 +71,13 @@ export default {
   },
   data() {
     const schema = yup.object().shape({
-    email: yup.string().required("Username is required"),
-    password: yup.string().required("Password is required")
+      email: yup.string().required("Username is required"),
+      password: yup.string().required("Password is required"),
     });
     return {
       loading: false,
       message: "",
       schema,
-    
-     
     };
   },
   computed: {
@@ -83,26 +85,32 @@ export default {
       return this.$store.state.auth.status.loggedIn;
     },
   },
-   created() {
+  created() {
     if (this.loggedIn) {
       this.$router.push("/Profile");
     }
   },
   methods: {
-    handleLogin(user) {
+    async handleLogin(user) {
       this.loading = true;
       this.$store.dispatch("auth/login", user).then(
         (data) => {
-          if(data.role === "admin"){
-              this.loading = false;
-              this.$router.push("/AdminDashBoard");
-              
-          }
-          else{
-            this.loading = false;
-            this.$router.push("/Profile");
-          }
-          
+          axios
+            .get("https://blogplatapi.herokuapp.com/users/oneuser", {
+              headers: authHeader(),
+            })
+            .then((res) => {
+              if (res.data.role === "admin") {
+                this.loading = false;
+                this.$router.push("/AdminDashBoard");
+              } else {
+                this.loading = false;
+                this.$router.push("/Profile");
+              }
+            })
+            .catch((err) => {
+              console.error(err);
+            });
         },
         (error) => {
           this.loading = false;
