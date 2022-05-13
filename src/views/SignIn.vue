@@ -93,8 +93,8 @@ export default {
   methods: {
     async handleLogin(user) {
       this.loading = true;
-      this.$store.dispatch("auth/login", user).then(
-        (data) => {
+      this.$store.dispatch("auth/login",   user).then(
+        () => {
           axios
             .get("https://blogplatapi.herokuapp.com/users/oneuser", {
               headers: authHeader(),
