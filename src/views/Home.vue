@@ -1,7 +1,7 @@
 <template>
    <div class="landing-section">
     <div class="landing-header">
-      <h2>Recents on The Blog...</h2>
+      <h3>Recents on The Blog...</h3>
     </div>
   </div>
   <div class="container">
@@ -146,7 +146,7 @@ export default {
   min-height: 50vh;
   background: rgba(0, 0, 0, 55%);
 }
-.landing-header h2 {
+.landing-header h3 {
   font-size: 60px;
   font-weight: 700;
   color: #fff;
