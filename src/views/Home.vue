@@ -1,8 +1,16 @@
 <template>
+   <div class="landing-section">
+    <div class="landing-header">
+      <h2>Recents on The Blog...</h2>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
+      <!-- <div class="home_img">
+        <img src="https://i.postimg.cc/ZqRfRzwL/blogging01.jpg" alt="">
+      </div> -->
         <div class="col-12">
-          <h3>Filter</h3>
+          <!-- <h3>Filter</h3> -->
           <select
             v-model="selected"
             class="form-select"
@@ -114,12 +122,64 @@ export default {
 </script>
 
 <style scoped>
+.landing-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("https://i.postimg.cc/ZqRfRzwL/blogging01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 70px;
+  object-fit: cover;
+}
+.landing-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 50vh;
+  background: rgba(0, 0, 0, 85%);
+}
+.landing-header h2 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+}
+.landing-header h4 {
+  color: #fff;
+}
+@media only screen and (max-width: 770px) {
+  .landing-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    min-height: 50vh;
+    background: rgba(0, 0, 0, 80%);
+  }
+  .landing-header h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .landing-header h4 {
+    color: #fff;
+  }
+}
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 70px;
 }
 .post {
   border: 6px solid white;
@@ -130,6 +190,20 @@ export default {
   text-align: left;
  
 }
+
+.home_img {
+  width: 100%;
+  object-fit: cover;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    min-height: 50vh;
+    background: rgba(0,0,0,.8);
+}
+
 
 img {
   width: 100%;
