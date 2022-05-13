@@ -15,7 +15,7 @@
         <router-link  @click="toggleNav" v-if="!currentUser" to="SignUp">Sign Up</router-link>
       
       
-        <!-- <router-link  @click="toggleNav" v-if="!currentUser" to="AdminDashBoard">admin</router-link> -->
+        <router-link  @click="toggleNav" v-if="currentUser" to="AdminDashBoard">admin</router-link>
       
       
         <router-link  @click="toggleNav" v-if="!currentUser" to="SignIn">Sign In</router-link>

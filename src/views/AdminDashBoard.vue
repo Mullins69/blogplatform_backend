@@ -1,85 +1,48 @@
 <template>
-  <h1 class="head" style="font-weight: bold;color:#b18044">DASHBOARD</h1>
-  <div class="border"></div>
   <div class="container">
-    <div class="content d-flex" style="width:100%; ">
+  <h1 class="head">Dashboard</h1>
+    <div class="row">
+      <div class="col">
+      <div class="user_info">
+        <h1 class="user_details">User Details</h1>
+      </div>
 
-      <div class="employees" style="width:50%;">
-        <h1>Barbers</h1>
-        <div >
-          <div class="barberName" > 
-            <div class="name" style="color:#b18044;font-size:20px;">
+      </div>
+    </div>
+    <table class="table">
+  <thead>
+    <tr >
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">More</th>
 
-              <button class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fas fa-edit" style="font-size:20px;"></i></button>
-              <button  class="btn" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt" style="font-size:20px;"></i></button>
-            </div>
-
+    </tr>
+  </thead>
+  <tbody>
+    <tr  v-for="user in users" :key="user._id">
+      <td>{{ user.fullname}}</td>
+      <td>{{ user.email}}</td>
+      <td>{{ user.role}}</td>
+        <td class = "select">
+   <div class="menu-nav">
+        <div class="dropdown-container" tabindex="-1">
+          <div class="three-dots"></div>
+          <div class="dropdown">
+            <div>edit</div>
+            <div>delete</div>
           </div>
         </div>
       </div>
-
-      <div class="clients" style="width:50%;">
-          <h1>Registered Users</h1>
-          <div >
-            <div class="client" > 
-              <div class="client_content" style="font-weight: 400;color:#b18044">
-                <div class="cname"> <h6 style="font-weight: bold;color:#b18044"> Name:</h6> </div>
-                <div class="email"> <h6 style="font-weight: bold;color:#b18044"> Email:</h6> </div>
-                <div class="crole"> <h6 style="font-weight: bold;color:#b18044"> Role:</h6> </div>
-                <!-- <i class="fas fa-edit" style="font-size:20px;color:white;"></i>
-                <i class="fas fa-trash" style="font-size:20px;color:white;"></i> -->
-              </div>
-            </div>
-        </div>
-    </div>
-
-    </div>
+    <!-- <TD ALIGN="center"></TD> -->
+    </td> 
+    </tr>
+  </tbody>
+</table>
   </div>
 
 
- <!-- edit barber -->
- <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="this.currentUser" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit your Profile</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form >
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Barber Name:</label>
-            <input type="text" class="form-control" id="recipient-name" v-model="updatedBarber.barberName" >
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn btn-primary" @click.prevent="updateBarber()" >SAVE</button>
-      </div>
-    </div>
-  </div>
-</div> -->
 
-
-<!-- delete modal barber -->
-<!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentUser">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       Are you sure you want to delete this employee?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn btn-danger"  @click.prevent="deleteBarber()" >YES</button>
-      </div>
-    </div>
-  </div>
-</div> -->
 </template>
 
 <script>
@@ -87,19 +50,16 @@ import axios from "axios";
 export default {
    data(){
             return {
-                // customers:[],
-                // barbers:[],
-                // updatedBarber:{
-                //   barberName:"",
-                // },
-                // barberToEdit: ''
+           
+                users:[],
+              
                 
             }
         },
         mounted(){
-            fetch("")
+            fetch("https://blogplatapi.herokuapp.com/users")
             .then(res => res.json())
-            .then(data => this.customers = data)
+            .then(data => this.users= data)
             .catch(err => console.log(err.message))
 
             // fetch("")
@@ -114,165 +74,97 @@ export default {
     },
    
   },
-  created() {
-    // if (this.currentUser.role !== "admin") {
-    //   // this.$router.push("/Profile")  
-    // }
-  // },
-  // methods:{
-  //     changeBarberToEdit(barber){
-  //       this.barberToEdit = barber
-  //     },
-  //     async updateBarber() {
-  //      try {
-  //     fetch(`https://barber-shopbackend.herokuapp.com/barbers/${this.barberToEdit}`,{
-  //       method: "PUT",
-  //       body: JSON.stringify({
-  //         barberName: this.updatedBarber.barberName,
-  //       }),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${
-  //           JSON.parse(localStorage.getItem("customer")).accessToken
-  //         }`,
-  //       },
-  //     })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       if(data.message) return alert(data.message)
-  //       alert("Barber Name Updated!");
-  //       this.$store.dispatch("auth/logout");
-  //       this.$router.go()
-  //       this.$router.push("/AdminDashboard")
-  //     });
-  //   } catch (err) {
-  //     console.error(err)
-  //     }
-  //   },
-  //     async deleteBarber(){
-  //     const headers = {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: `Bearer ${
-  //           JSON.parse(localStorage.getItem("customer")).accessToken
-  //         }`,
-  //         },
-  //     };
-  //     const new_url ="https://barber-shopbackend.herokuapp.com/barbers/";
-  //     try {
-  //       await axios.delete(new_url + this.barberToEdit, headers, this.currentUser).then(() => {
-  //         alert("Barber has been deleted successfully");
-  //         this.$store.dispatch("auth/logout");
-  //         this.$router.go()
-  //       this.$router.push("/AdminDashboard")
-  //       });
-  //     } catch(err) {
-  //       console.error(err);
-  //     }
-  //   },
-  // }
-}}
+  
+
+}
 </script>
 
 <style scoped>
-.fas{
-  background: transparent;
-  /* padding-right: 30px; */
-}
-.fas:hover{
-  color: #b18044;
-}
-.head{
-    padding-top:100px;
-    
-}
-.border{
-    border-top: 1px solid;
-    width: 100px;
-    display:inline-flex;
-    justify-content: center;
-}
-/* .container{
+ .container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+   padding-top: 100px;
+  /* flex-wrap: wrap; */
 }
 
-.name{
-   display: block;
-  width: 150px;
-  height:100px;
-    border: solid 1.5px white;
-  border-radius: 5px;
-  padding: 1em;
-  background:white;
-  color:black;
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.barberName{
-  margin: 15px;
-}
-
-table,tr,td,th{
-  border: solid 1.5px white;
-  width: 100%;
-  padding: 0.5em;
-  height: 100;
-} */
-
-
-@media only screen and (max-width: 600px) {
- .content{
-   display:flex;
-   flex-direction: column;
-   align-items: center;
- }
-}
-/* table,tr,td,th{
-  border: solid 1.5px white;
-  width: 100%;
-  padding: 0.5em;
-  height: 100;
-}  */
-
-.barberName{
-  /* border: solid 1.5px white; */
-  padding: 0.5em;
-  margin-bottom: 20px;
-  border:1px solid white;
-  border-radius:7px;
-  margin-right: 5px;
-}
-.client{
-  /* border: solid 1.5px white; */
-  padding: 0.5em;
-  margin-bottom: 20px;
-  border:1px solid #b68345;
-  border-radius:7px;
-  margin-right: 5px;
-  height: auto;
-}
-.name{
-  background: transparent;
-  padding: 0.5em;
+.menu-nav {
   
-}
-.client_content{
-  background: transparent;
-  padding: 0.5em;
-  
-}
-.cname, h6{
-  background: transparent;
-}
-.email{
-   background: transparent;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-.crole{
-  background: transparent;
+.three-dots:after {
+  cursor: pointer;
+  content: '\2807';
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+/* a {
+  text-decoration: none;
+  color: white;
+}
+
+a div {
+  padding: 2px;
+}
+  */
+.dropdown {
+  position: absolute;
+  right: 20px;
+  background-color: grey;
+  
+  outline: none;
+  opacity: 0;
+  z-index: -1;
+  max-height: 0;
+  /* transition: opacity 0.1s, z-index 0.1s, max-height: 5s; */
+}
+
+.dropdown-container:focus {
+  outline: none;
+}
+
+.dropdown-container:focus .dropdown {
+  opacity: 1;
+  z-index: 100;
+  max-height: 100vh;
+  transition: opacity 0.2s,
+    /* z-index 0.2s, max-height: 0.2s; */
+}
+
+.user_details{
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 70px;
+  color: #000000;
+}
+
+.head{
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 50px;
+  color: #000000; 
+}
+
+th{
+ font-family: 'Inter';
+  font-weight: 450;
+  font-size: 15px;
+  line-height: 15px;
+  color:red;  
+}
+
+td{
+  font-family: 'Inter';
+  font-weight: 450;
+  font-size: 13px;
+  line-height: 15px;
+  color:#2b2f32;  
 }
 </style>
