@@ -6,7 +6,6 @@
       <div class="user_info">
         <h1 class="user_details">User Details</h1>
       </div>
-
       </div>
     </div>
     <table class="table">
@@ -29,8 +28,8 @@
         <div class="dropdown-container" tabindex="-1">
           <div class="three-dots"></div>
           <div class="dropdown">
-            <div>edit</div>
-            <div>delete</div>
+           <button class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Edit</button>
+           <button class="btn" id="delete"  @click="deleteUser" >Delete</button>
           </div>
         </div>
       </div>
@@ -40,26 +39,66 @@
   </tbody>
 </table>
   </div>
+  <Footer/>
 
 
-
+<!-- edit user -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="currentUser">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color:#b18044;">Edit your Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form >
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="recipient-name"  v-model="fullname">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Email:</label>
+            <input type="text" class="form-control" id="recipient-name"  v-model="email">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Role:</label>
+            <input type="text" class="form-control" id="recipient-name"  v-model="role">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
+        <button type="button" class="btn" @click="updateUser" >SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
+
+const url = "https://blogplatapi.herokuapp.com/users";
+import authHeader from "../services/auth-header";
+const API_URL = "https://blogplatapi.herokuapp.com/users/oneuser";
+import Footer from "@/components/Footer.vue";
 import axios from "axios";
 export default {
+  components: {
+    // Footer
+  },
    data(){
-            return {
-           
-                users:[],
-              
-                
-            }
+          return {
+             users:[],  
+              email:"",
+              fullname:"",
+              role:"",
+              password:""
+          }
         },
         mounted(){
-            fetch("https://blogplatapi.herokuapp.com/users")
+            fetch(`${url}`)
             .then(res => res.json())
-            .then(data => this.users= data)
+            .then(data => this.users = data)
             .catch(err => console.log(err.message))
 
             // fetch("")
@@ -74,7 +113,58 @@ export default {
     },
    
   },
-  
+  methods: {
+    async updateUser() {
+       try {
+      fetch(`${url}`,{
+        method: "PUT",
+        body: JSON.stringify({
+           email: this.email,
+           fullname: this.fullname,
+           role: this.role,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user"))
+          }`,
+        },
+      })
+      .then((res) => res.json())
+      .then(() => {
+        alert("Your profile has been updated!");
+        // this.$store.dispatch("auth/logout");
+        this.$router.push("/Profile")
+      });
+    } catch (err) {
+      console.error(err)
+      }
+    },
+    async deleteUser(){
+      const headers = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user"))
+          }`,
+          },
+      };
+      const new_url = url;
+       if (confirm("Do you really want to delete your profile?")){
+          try {
+        await axios.delete(new_url, headers).then(() => {
+          alert("Profile has been deleted successfully");
+          this.$store.dispatch("auth/logout");
+          this.$router.push("/Profile")
+        });
+      } catch(err) {
+        console.error(err);
+      }
+       }
+     
+    },
+   
+  },
 
 }
 </script>
@@ -101,22 +191,35 @@ export default {
   content: '\2807';
   font-size: 20px;
   padding: 0 20px;
+
 }
 
-/* a {
-  text-decoration: none;
-  color: white;
+#edit{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100px;
+  font-weight: 600;
+}
+#delete{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100px;
+  font-weight: 600;
+ 
+}
+#edit:hover{
+   color: red  
+}
+#delete:hover{
+  color: red  
 }
 
-a div {
-  padding: 2px;
-}
-  */
+
+
 .dropdown {
   position: absolute;
   right: 20px;
-  background-color: grey;
-  
+  background-color: #e4e4e4;
   outline: none;
   opacity: 0;
   z-index: -1;
@@ -167,4 +270,5 @@ td{
   line-height: 15px;
   color:#2b2f32;  
 }
+
 </style>
