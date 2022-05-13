@@ -130,7 +130,7 @@ export default {
   min-height: 50vh;
   margin: 0;
   padding: 0;
-  background-image: url("https://i.postimg.cc/ZqRfRzwL/blogging01.jpg");
+  background-image: url("https://i.postimg.cc/26Zcwnbt/EN-hero.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -144,7 +144,7 @@ export default {
   flex-direction: column;
   width: 100%;
   min-height: 50vh;
-  background: rgba(0, 0, 0, 85%);
+  background: rgba(0, 0, 0, 55%);
 }
 .landing-header h2 {
   font-size: 60px;
