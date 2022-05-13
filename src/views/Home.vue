@@ -127,10 +127,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  min-height:65vh;
   margin: 0;
   padding: 0;
-  background-image: url("https://i.postimg.cc/26Zcwnbt/EN-hero.png");
+  background-image: url("https://i.postimg.cc/XNBqCVn5/MV5-BNz-Zi-Yz-Qw-MTQt-NTc0-MS00-ODEw-LWI2-Nz-Ut-ZDVh-OTBl-MDA1-Ym-Y2-Xk-Ey-Xk-Fqc-Gde-QXRy-YW5z-Y29k-ZS13b3-Jr-Zmxvdw-V1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
