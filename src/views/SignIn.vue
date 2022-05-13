@@ -1,6 +1,8 @@
 <template>
 <div class="container">
-
+       <div class="name">
+       <h1 class="signup"></h1>
+      </div>
     <div id="card">
     <div id="card-content">
       <div id="card-title">
@@ -145,11 +147,13 @@ line-height: 77px;
 color: #000000;
 }
 #card{
-    display:flex;
+    /* display:flex;
     justify-content:center;
-         margin-top: 50px;
+         margin-top: 50px; */
 
-    
+    /* height: 640px;
+
+  width: 320px; */
 }
  a{
   text-decoration: none;

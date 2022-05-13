@@ -264,9 +264,9 @@ body {
 }
 #card {
 
-  height: 650px;
+  height: 600px;
 
-  width: 330px;
+  width: 300px;
 }
 
 #card-title {
