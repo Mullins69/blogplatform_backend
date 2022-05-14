@@ -14,7 +14,7 @@
           <option selected value="">Display All</option>
           <option value="sport">Sport</option>
           <option value="food">Food</option>
-          <option value="politics">Politics</option>
+          <option value="politics">Reality</option>
         </select>
       </div>
       <button type="button" class="btn btn-mod btn-border btn-large" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="loggedIn == true"> Add a Blog</button>
@@ -66,7 +66,7 @@
             <select v-model="category" class="form-select" aria-label="Default select example" required>
               <option class="category_opt" selected value="food">Food</option>
               <option class="category_opt" value="sport">Sport</option>
-              <option class="category_opt" value="politics">Politics</option>
+              <option class="category_opt" value="politics">Reality</option>
             </select>
             <label for="Image" class="heading_inputs">Image <span class="required">*</span></label>
             <input type="text" placeholder="Image Link" v-model="img" required class="modal_postImg" />
