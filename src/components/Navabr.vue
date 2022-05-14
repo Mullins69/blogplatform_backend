@@ -77,7 +77,7 @@ nav {
   align-items: center;
   flex-direction: row;
   min-height: 50px;
-  background-color: transparent;
+  background-color: white;
   position: fixed;
   top: 0;
   z-index: 2;

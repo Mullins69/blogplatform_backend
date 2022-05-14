@@ -6,7 +6,9 @@
     </header>
   </div>
   <div class="container">
-    
+          <router-link to="SignIn" class="SIgnUp_toAdd">Sign Up To Add A Blog</router-link>
+
+   
       <div class="col_addPost">
         <!-- Button trigger modal -->
         <select v-model="selected" class="form-select" aria-label="Default select example">
@@ -16,9 +18,9 @@
           <option value="politics">Politics</option>
         </select>
       </div>
+      <button type="button" class="btn btn-mod btn-border btn-large" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="loggedIn == true"> Add a Blog</button>
     
     <div class="col" v-if="blogs">
-      <button type="button" class="btn btn-mod btn-border btn-large" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="loggedIn == true"> Add a Blog</button>
         <div class="post" v-for="blog of filterBlogs" :key="blog._id">
           <div class="blog_post" v-for="data of blog.post" :key="data._id">
             <div class="post_image">
@@ -53,45 +55,30 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
+          <h6 class="modal-title" id="exampleModalLabel">Add a Post</h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
           ></button>
         </div>
         <form class="container" @submit.prevent="addPost">
           <div class="modal-body">
-            <input type="text" v-model="title" placeholder="title" required />
-            <select
-              v-model="category"
-              class="form-select"
-              aria-label="Default select example"
-              required
-            >
-              <option selected value="food">Food</option>
-              <option value="sport">Sport</option>
-              <option value="politics">Politics</option>
+            <label for="title" class="heading_inputs">Title <span class="required">*</span> </label>
+            <input type="text" v-model="title"  class="modal_postTitle" required />
+            <label for="Catergory" class="heading_inputs">Catergory <span class="required">*</span></label>
+            <select v-model="category" class="form-select" aria-label="Default select example" required>
+              <option class="category_opt" selected value="food">Food</option>
+              <option class="category_opt" value="sport">Sport</option>
+              <option class="category_opt" value="politics">Politics</option>
             </select>
-            <input type="text" placeholder="img link" v-model="img" required />
-            <input
-              type="text"
-              placeholder="details"
-              v-model="details"
-              required
-            />
+            <label for="Image" class="heading_inputs">Image <span class="required">*</span></label>
+            <input type="text" placeholder="Image Link" v-model="img" required class="modal_postImg" />
+            <label for="Content" class="heading_inputs">Content <span class="required">*</span></label>
+            <textarea type="text"  v-model="details" class="modal_postDetails" require  />
           </div>
-
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn_closeModal" data-bs-dismiss="modal">
               Close
             </button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn_saveChanges ">Save Changes</button>
           </div>
         </form>
       </div>
@@ -193,7 +180,139 @@ export default {
 </script>
 
 <style scoped>
+.heading_inputs{
+  font-family: "Inter";
+  font-weight: 550 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  color: #6c757d !important;
+}
+.required{
+  color: red
+}
 
+.category_opt{
+  font-weight: 450;
+  font-size: 14px;
+  text-align: center;
+}
+.btn_closeModal{
+  color: white;
+  background-color:red;
+  border:none;
+  border-radius:3px;
+  padding:8px 10px;
+  font-weight: 600;
+}
+.btn_saveChanges{
+  color: white;
+  background-color:black;
+  border:none;
+  border-radius:3px;
+  padding:8px 10px;
+  font-weight: 600;
+}
+.btn_closeModal:hover{
+  color: red;
+  background-color:white;
+  border-radius:3px;
+  transition: 0.5s
+}
+.btn_saveChanges:hover{
+  color: black;
+  background-color:white;
+  border-radius:3px;
+  transition: 0.5s 
+}
+.form-select{
+  margin-top: 5px;
+    border-radius:3px;
+  border:2px solid !important ;
+}
+
+.modal_postImg::placeholder{
+  font-family: "Inter";
+  font-weight: 450 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  padding-bottom: 20px;
+  color: black !important;
+}
+
+.modal_postDetails{
+  display: block;
+  height: 40px;
+  padding: 10px ;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius:3px;
+  border:2px solid !important ;
+  color: #333;
+  background-color: #fff;
+  background-image: none;
+  border: solid 1px black;
+  margin-top: 5px;
+  width:230px;
+  height:100px
+}
+.modal_postImg{
+  display: block;
+  height: 40px;
+  padding: 10px ;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius:3px;
+  border:2px solid !important ;
+  color: #333;
+  background-color: #fff;
+  background-image: none;
+  border: solid 1px black;
+    margin-top: 5px;
+}
+.modal_postTitle{
+  display: block;
+  height: 40px;
+  padding: 10px ;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius:3px;
+  border:2px solid !important ;
+  color: #333;
+  background-color: #fff;
+  background-image: none;
+  border: solid 1px black;
+    margin-top: 5px;
+}
+/* .modal-title h6{
+  text-align: center !important;
+  margin-left:auto ;
+  margin-right:auto ;
+} */
+ .modal-dialog{
+   display: flex;
+   justify-content: center;
+    width: 50vh;
+   text-align: left;
+   margin-top: 200px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+.modal-body{
+  margin-top: -100px;
+}
+
+.SIgnUp_toAdd{
+  text-decoration: none;
+    font-family: "Inter";
+  font-weight: 600 !important;
+  font-size: 17px !important;
+  line-height: 20px !important;
+  padding-bottom: 20px;
+  color: #6c757d !important;
+}
+.SIgnUp_toAdd:hover{
+  color: black !important;
+}
 .col_addPost{
   padding-bottom: 25px;
 }
@@ -249,14 +368,14 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  /* min-height: 50vh; */
   margin: 0;
   padding: 0;
   background-image: url("https://i.postimg.cc/kgC9fXt2/digital-art-simple-background-minimalism-lightbulb-typography-Think-logo-light-lighting-hand-darknes.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-top: 70px;
+  /* margin-top: 70px; */
 }
 .landing-header {
   display: flex;
@@ -265,7 +384,7 @@ export default {
   flex-direction: column;
   width: 100%;
   min-height: 60vh;
-  background: rgba(0, 0, 0, 65%);
+  background: rgba(0, 0, 0, 35%);
 }
 .landing-header h2 {
   font-size: 60px;
