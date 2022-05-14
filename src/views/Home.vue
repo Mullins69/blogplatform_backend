@@ -2,7 +2,6 @@
   <div class="landing-section">
     <header class="landing-header">
       <h2>Recent on The Blog...</h2>
-      
     </header>
   </div>
   <div class="container">
@@ -390,6 +389,7 @@ export default {
   font-size: 60px;
   font-weight: 700;
   color: #fff;
+  padding-top: 70px;
 }
 .landing-header h4 {
   color: #fff;
