@@ -24,7 +24,7 @@
           <div class="blog_post" v-for="data of blog.post" :key="data._id">
             <div class="post_image">
               <img :src="data.img" alt="PIC DIDNT LOAD" />
-            </div>
+            </div>  
             <div class="post_title">
               <h2>
                 {{ data.title }}
