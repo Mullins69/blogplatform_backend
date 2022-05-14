@@ -9,7 +9,7 @@
     <div class="nav-items">
         <router-link   @click="toggleNav"   to="/">Home</router-link>
         <router-link   @click="toggleNav"  v-if="currentUser"  to="Profile">Profile</router-link>
-        <router-link  @click="toggleNav" v-if="currentUser" to="AdminDashBoard">admin</router-link>
+        <!-- <router-link  @click="toggleNav" v-if="currentUser" to="AdminDashBoard">admin</router-link> -->
         <router-link  @click="toggleNav" v-if="!currentUser" to="SignIn">Sign In</router-link>
         <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
     </div>

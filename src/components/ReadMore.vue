@@ -24,13 +24,15 @@
             <Loader/>
         </div>
     </div>
+    <Footer/>
 </template>
 <script>
+import Footer from "../components/Footer.vue"
 import Loader from "../components/Loader.vue";
 export default {
     props: ['id'],
     components:{
-        Loader
+        Loader,Footer
     },
     data() {
     return {
@@ -91,11 +93,15 @@ export default {
 }
 
 
-.blogpost_details{
+.blogpost_details p{
   font-family: "Inter";
   font-weight: 450;
   font-size: 15px;
-  line-height: 50px;
   color:black;
+  text-align: center;
+  margin-right: 10%;
+  margin-left: 10%;
+  padding-bottom: 50px;
+  padding-top: 35px;
 }
 </style>

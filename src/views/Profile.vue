@@ -288,4 +288,10 @@ img{
     height: 0px;
   }
 } */
+
+img{
+  border: 6px solid white;
+    box-shadow: 2px 2px 8px #e4e4e4;
+
+}
 </style>
