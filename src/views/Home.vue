@@ -283,11 +283,11 @@ export default {
   border: solid 1px black;
     margin-top: 5px;
 }
-/* .modal-title h6{
-  text-align: center !important;
+.modal-content{
   margin-left:auto ;
   margin-right:auto ;
-} */
+  width: auto;
+}
  .modal-dialog{
    display: flex;
    justify-content: center;
@@ -413,6 +413,7 @@ export default {
   .landing-header h4 {
     color: #fff;
   }
+  
 }
 .container {
   display: flex;
