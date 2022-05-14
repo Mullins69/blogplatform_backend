@@ -20,7 +20,7 @@
       <button type="button" class="btn btn-mod btn-border btn-large" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="loggedIn == true"> Add a Blog</button>
     
     <div class="col" v-if="blogs">
-        <div class="post" v-for="blog of filterBlogs" :key="blog._id">
+        <div class="post" v-for="blog of filterBlogs.slice().reverse()" :key="blog._id">
           <div class="blog_post" v-for="data of blog.post" :key="data._id">
             <div class="post_image">
               <img :src="data.img" alt="PIC DIDNT LOAD" />
