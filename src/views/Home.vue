@@ -1,36 +1,27 @@
 <template>
+  <div class="landing-section">
+    <header class="landing-header">
+      <h2>Recent on The Blog...</h2>
+      
+    </header>
+  </div>
   <div class="container">
-    <div class="row">
-      <div class="col-12">
+    
+      <div class="col_addPost">
         <!-- Button trigger modal -->
-
-        <h3>Filter</h3>
-        <select
-          v-model="selected"
-          class="form-select"
-          aria-label="Default select example"
-        >
+        <select v-model="selected" class="form-select" aria-label="Default select example">
           <option selected value="">Display All</option>
           <option value="sport">Sport</option>
           <option value="food">Food</option>
           <option value="politics">Politics</option>
         </select>
       </div>
-    </div>
-    <div class="row" v-if="blogs">
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        v-if="loggedIn == true"
-      >
-        Add Post
-      </button>
-      <div class="col">
+    
+    <div class="col" v-if="blogs">
+      <button type="button" class="btn btn-mod btn-border btn-large" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="loggedIn == true"> Add a Blog</button>
         <div class="post" v-for="blog of filterBlogs" :key="blog._id">
           <div class="blog_post" v-for="data of blog.post" :key="data._id">
-            <div class="post_iamge">
+            <div class="post_image">
               <img :src="data.img" alt="PIC DIDNT LOAD" />
             </div>
             <div class="post_title">
@@ -38,19 +29,9 @@
                 {{ data.title }}
               </h2>
             </div>
-            <!-- <div class="post_details">
-              <p>
-                {{ data.details }}
-              </p>
-            </div> -->
           </div>
-          <router-link
-            class="readmore"
-            :to="{ name: 'readmore', params: { id: blog._id } }"
-            >Read More ...</router-link
-          >
+          <router-link class="readmore" :to="{ name: 'readmore', params: { id: blog._id } }" >Read More ... </router-link >
         </div>
-      </div>
     </div>
 
     <div class="row" v-else>
@@ -212,12 +193,114 @@ export default {
 </script>
 
 <style scoped>
-.container {
+
+.col_addPost{
+  padding-bottom: 25px;
+}
+
+.btn-mod.btn-large {
+    height: auto;
+    padding: 13px 52px;
+    font-size: 15px;
+    border-radius:3px;
+}
+
+.btn-mod.btn-border {
+    color: white;
+    border: 1px solid black;
+    background: black;
+}
+
+.btn-mod, a.btn-mod {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 4px 13px;
+    color: #fff;
+    background: rgba(34,34,34, .9);
+    border: 1px solid transparent;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -moz-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -o-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -ms-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+}
+
+.btn-mod.btn-border:hover, .btn-mod.btn-border:active, .btn-mod.btn-border:focus, .btn-mod.btn-border:active:focus {
+   color: black;
+    border-color:white ;
+    background-color:white;
+    outline: none;
+}
+
+.landing-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("https://i.postimg.cc/kgC9fXt2/digital-art-simple-background-minimalism-lightbulb-typography-Think-logo-light-lighting-hand-darknes.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 70px;
+}
+.landing-header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
+  width: 100%;
+  min-height: 60vh;
+  background: rgba(0, 0, 0, 65%);
+}
+.landing-header h2 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+}
+.landing-header h4 {
+  color: #fff;
+}
+@media only screen and (max-width: 770px) {
+  .landing-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    min-height: 50vh;
+    background: rgba(0, 0, 0, 80%);
+  }
+  .landing-header h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .landing-header h4 {
+    color: #fff;
+  }
+}
+.container {
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
 }
 .post {
   border: 6px solid white;
@@ -226,9 +309,12 @@ export default {
   margin: 50px;
   box-shadow: 2px 2px 8px #e4e4e4;
   text-align: left;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-img {
+.post_image img {
   width: 100%;
   object-fit: cover;
 }
@@ -263,4 +349,6 @@ img {
   color: red;
   border-bottom: 3px solid red;
 }
+
+
 </style>

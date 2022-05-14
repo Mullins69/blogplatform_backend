@@ -7,20 +7,11 @@
        </router-link>
     </div>
     <div class="nav-items">
-      
         <router-link   @click="toggleNav"   to="/">Home</router-link>
         <router-link   @click="toggleNav"  v-if="currentUser"  to="Profile">Profile</router-link>
-      
-      
-        <!-- <router-link  @click="toggleNav" v-if="!currentUser" to="SignUp">Sign Up</router-link> -->
-      
-      
         <router-link  @click="toggleNav" v-if="currentUser" to="AdminDashBoard">admin</router-link>
-      
-      
         <router-link  @click="toggleNav" v-if="!currentUser" to="SignIn">Sign In</router-link>
-         <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
-      
+        <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
     </div>
     <div class="mobile-nav">
       <button class="menu">
@@ -28,24 +19,9 @@
       </button>
     </div>
     <div class="mobile-nav-items">
-      
-        <router-link to="/" class="mobile">Home</router-link>
-    
-    
-        <router-link @click="toggleNav" v-if="!currentUser" to="SignUp" class="mobile"
-          >Sign Up</router-link
-        >
-  
-      
-        <router-link @click="toggleNav" v-if="!currentUser" to="SignIn" class="mobile"
-          >Sign In</router-link
-        >
-      
-      
-        <router-link @click="toggleNav" v-if="currentUser" to="Profile" class="mobile"
-          >Profile</router-link
-        >
-    
+      <router-link to="/" class="mobile">Home</router-link>
+      <router-link @click="toggleNav" v-if="!currentUser" to="SignIn" class="mobile">Sign In</router-link>
+      <router-link @click="toggleNav" v-if="currentUser" to="Profile" class="mobile">Profile</router-link>
       <button class="btn" v-if="currentUser" @click="logOut">Logout</button>
     </div>
   </nav>
@@ -75,21 +51,22 @@ export default {
     },
    
   },
-  // created() {
-  //     if(this.currentUser){
-  //         if(this.currentUser.role == 'admin'){
-  //             this.showAdmin = true;
-  //         }else{
-  //             this.showAdmin = false;
-  //         }
-  //     }
-  // }
+  created() {
+      if(this.currentUser){
+          if(this.currentUser.role == 'admin'){
+              this.showAdmin = true;
+          }else{
+              this.showAdmin = false;
+          }
+      }
+  }
 };
 </script>
 
 <style scoped>
+
 .btn {
-  font-weight: 700;
+  font-weight: 650;
     text-decoration: none;
     color: black;
 }
@@ -146,6 +123,11 @@ nav a.router-link-exact-active {
   display: none;
 }
 @media screen and (max-width: 600px) {
+  .btn {
+  font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
   nav {
     min-height: 35px;
   }
