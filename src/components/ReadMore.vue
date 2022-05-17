@@ -1,46 +1,48 @@
 <template>
-    <div class="container">
-        <div class="row" v-if="singleblog">
-            <div class="col" v-for="blog of singleblog.post" :key="blog._id">
-              <div class="blogpost_title">
-                <h1>
-                    {{blog.title}}
-                </h1>
-              </div>
-              <div class="blogpost_author">
-                <h3>Posted by {{blog.username}}</h3>
-              </div>
-              <div class="blogpost_image">
-                <img :src="blog.img" alt="pic" >
-              </div>
-              <div class="blogpost_details">
-                <p>
-                  {{blog.details}}
-                </p>
-              </div>
-            </div>
+  <div class="container">
+    <div class="row" v-if="singleblog">
+      <div class="col" v-for="blog of singleblog.post" :key="blog._id">
+        <div class="blogpost_title">
+          <h1>
+            {{ blog.title }}
+          </h1>
         </div>
-        <div class="row" v-else>
-            <Loader/>
+        <div class="blogpost_author">
+          <h3>Posted by {{ blog.username }}</h3>
         </div>
+        <div class="blogpost_image">
+          <img :src="blog.img" alt="pic" />
+        </div>
+        <div class="blogpost_details">
+          <p>
+            {{ blog.details }}
+          </p>
+        </div>
+      </div>
     </div>
-    <Footer/>
+    <div class="row" v-else>
+      <Loader />
+    </div>
+  </div>
+  <Footer />
 </template>
 <script>
-import Footer from "../components/Footer.vue"
+import Footer from "../components/Footer.vue";
 import Loader from "../components/Loader.vue";
 export default {
-    props: ['id'],
-    components:{
-        Loader,Footer
-    },
-    data() {
+  props: ["id"],
+  components: {
+    Loader,
+    Footer,
+  },
+  data() {
     return {
       singleblog: null,
+      loggedIn: this.$store.state.auth.status.loggedIn,
     };
   },
-  mounted(){
-      fetch("https://blogplatapi.herokuapp.com/posts/" + this.id, {
+  mounted() {
+    if(this.loggedIn == true){  fetch("https://blogplatapi.herokuapp.com/posts/" + this.id, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -48,17 +50,19 @@ export default {
     })
       .then((response) => response.json())
       .then((json) => {
-        this.singleblog = json
+        this.singleblog = json;
       })
       .catch((err) => {
         alert(err);
         console.log(err);
-      });
-  }
-}
+      });}
+    else{
+       this.$router.push("/SignIn");
+    }
+  },
+};
 </script>
 <style scoped>
-
 .container {
   display: flex;
   justify-content: center;
@@ -68,36 +72,33 @@ export default {
   row-gap: 1rem;
 }
 
-
-.blogpost_title h1{
+.blogpost_title h1 {
   font-family: "Inter";
   font-weight: 700;
   font-size: 30px;
   line-height: 30px;
-  color:black;
-  
+  color: black;
 }
-  .blogpost_author h3{
-    font-family: "Inter";
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 30px;
-    color:#6c757d!important;
-  }
+.blogpost_author h3 {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 30px;
+  color: #6c757d !important;
+}
 
-.blogpost_image img{
+.blogpost_image img {
   width: 80% !important;
   border: 5px solid white;
   box-shadow: 8px 8px 15px #e4e4e4;
-  border-radius:2px;
+  border-radius: 2px;
 }
 
-
-.blogpost_details p{
+.blogpost_details p {
   font-family: "Inter";
   font-weight: 450;
   font-size: 15px;
-  color:black;
+  color: black;
   text-align: center;
   margin-right: 10%;
   margin-left: 10%;
