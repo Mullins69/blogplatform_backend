@@ -4,10 +4,10 @@
         <p>
           Thank you for signing up to  The <span style="color:red">B</span>log.
         </p>
-        <p>
+        <!-- <p>
           Don't forget to check your email for your registration confirmation,
           however you can sign in immediately.
-        </p>
+        </p> -->
       
       <div class="sign-up">
         <router-link :to="{ path: '/SignIn' }">
@@ -42,7 +42,7 @@ components:{
 }
 
 .btn-mod.btn-border {
-     color: black;
+     color: white;
     border: 1px solid #F50808;
     background: #F50808;
 }
@@ -74,7 +74,7 @@ components:{
 }
 
 .btn-mod.btn-border:hover, .btn-mod.btn-border:active, .btn-mod.btn-border:focus, .btn-mod.btn-border:active:focus {
-   color: white;
+   color: black;
     border-color:white ;
     
     outline: none;

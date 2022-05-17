@@ -397,7 +397,7 @@ h1.headin{
 }
 
 .btn-mod.btn-border {
-    color: black;
+    color: white;
     border: 1px solid #F50808;
     background: #F50808;
 }
@@ -429,7 +429,7 @@ h1.headin{
 }
 
 .btn-mod.btn-border:hover, .btn-mod.btn-border:active, .btn-mod.btn-border:focus, .btn-mod.btn-border:active:focus {
-    color: white;
+    color: black;
     border-color:white ;
     
     outline: none;

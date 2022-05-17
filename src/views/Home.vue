@@ -56,8 +56,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h6 class="modal-title" id="exampleModalLabel">Add a Post</h6>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form class="container" @submit.prevent="addPost">
           <div class="modal-body">
@@ -69,11 +68,13 @@
               <option class="category_opt" value="sport">Sport</option>
               <option class="category_opt" value="politics">Reality</option>
             </select>
-            <label for="Image" class="heading_inputs">Image <span class="required">*</span>     </label>
+            <label for="Image" class="heading_inputs">Image <span class="required">*</span></label>
            <span class="hover_info">
-            <img src="https://i7.uihere.com/icons/928/977/220/info-219389368a6aaae683552861f294b890.png" alt="Avatar" class="image">
-            <div class="overlay">My Name is John</div>
-          </span>
+              <i class="fas fa-info-circle"></i> 
+              <span class="para_info">
+                Search for an image, right-click, and click "Copy image address" and paste in input.
+              </span>
+           </span>
             <input type="text" placeholder="Image Link" v-model="img" required class="modal_postImg" />
             <label for="Content" class="heading_inputs">Content <span class="required">*</span></label>
             <textarea type="text"  v-model="details" class="modal_postDetails" require  />
@@ -193,30 +194,30 @@ export default {
 </script>
 
 <style scoped>
-.overlay {
-  position: absolute;
-  bottom: 100;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); 
-  color: #f1f1f1;
-
-  transition: .5s ease;
-  opacity:0;
-  color: white;
-  font-size: 10px;
-  padding: 7px;
+.hover_info .para_info {
+  visibility: hidden;
+  /* width: 120px; */
+  background-color:#e4e4e4;
+  color:black;
   text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  font-size: 12px;
+  
 }
 
-.hover_info:hover .overlay {
-  opacity: 1;
+
+.hover_info:hover .para_info {
+  visibility: visible;
 }
-
-
 .hover_info img{
   width: 15px;
   height: 15px;
   object-fit: cover;
+  position: relative;
+  left:165px;
 }
 .heading_inputs{
   font-family: "Inter";
