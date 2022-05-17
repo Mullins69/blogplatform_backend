@@ -2,6 +2,11 @@
   <div class="landing-section">
     <header class="landing-header">
       <h2>Recent on The Blog...</h2>
+      
+        <h3>Compiled by</h3>
+      <div class="compilers">
+      <a href="https://github.com/androidm16" target="_blank">Siyabonga Mkhosana</a> <span class="splitLine" style="color: white">|</span>  <a href="https://github.com/Mogamat-Muneeb" target="_blank">Mogamat Muneeb Davids</a> <span class="splitLine" style="color: white">|</span>  <a href="https://github.com/Mullins69" target="_blank">Abdul-Atheem Mullins</a>
+      </div>
     </header>
   </div>
   <div class="container">
@@ -194,10 +199,27 @@ export default {
 </script>
 
 <style scoped>
+.compilers a{
+  text-decoration: none;
+  color: #fff;
+ font-weight:700;
+}
+.compilers a:hover{
+  /* text-decoration: underline; */
+  color: #90979d;
+ font-weight:701;
+}
+.compilers{
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+   position: relative;
+  top: 15px;
+}
 .hover_info .para_info {
   visibility: hidden;
   /* width: 120px; */
-  background-color:#e4e4e4;
+  background-color:#f2f0f0;
   color:black;
   text-align: center;
   padding: 5px 0;
@@ -357,14 +379,14 @@ export default {
 }
 
 .btn-mod.btn-large {
-    height: auto;
+  height: auto;
     padding: 13px 52px;
     font-size: 15px;
     border-radius:3px;
 }
 
 .btn-mod.btn-border {
-    color: white;
+  color: white;
     border: 1px solid black;
     background: black;
 }
@@ -396,7 +418,7 @@ export default {
 }
 
 .btn-mod.btn-border:hover, .btn-mod.btn-border:active, .btn-mod.btn-border:focus, .btn-mod.btn-border:active:focus {
-   color: black;
+  color: black;
     border-color:white ;
     background-color:white;
     outline: none;
@@ -427,6 +449,12 @@ export default {
 }
 .landing-header h2 {
   font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+  padding-top: 70px;
+}
+.landing-header h3 {
+  font-size: 18px;
   font-weight: 700;
   color: #fff;
   padding-top: 70px;
@@ -510,5 +538,22 @@ export default {
   border-bottom: 3px solid red;
 }
 
-
+@media only screen and (max-width: 540px) {
+  .splitLine{
+    visibility: hidden;
+  }
+  .compilers{
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+   position: relative;
+  top: 5px;
+}
+.compilers a{
+  text-decoration: none;
+  color: #fff;
+ font-weight:700;
+ margin-top: -15px;
+}
+}
 </style>

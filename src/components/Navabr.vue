@@ -3,7 +3,7 @@
   <nav>
     <div class="nav-icon">
        <router-link class="navbar-brand"  @click="toggleNav"  to="/">
-      <h2>The <span style="color:red">B</span>log.</h2>
+      <h2><span style="color:red">The</span> B<span style="color:red">log</span>.</h2>
        </router-link>
     </div>
     <div class="nav-items">
