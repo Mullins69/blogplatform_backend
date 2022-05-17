@@ -5,9 +5,9 @@
     </header>
   </div>
   <div class="container">
-          <router-link to="SignIn" class="SIgnUp_toAdd">Sign Up To Add A Blog</router-link>
+          <router-link to="SignIn"    v-if="currentUser" class="SIgnUp_toAdd">Sign Up To Add A Blog</router-link>
 
-   
+  
       <div class="col_addPost">
         <!-- Button trigger modal -->
         <select v-model="selected" class="form-select" aria-label="Default select example">
@@ -43,6 +43,7 @@
   </div>
   <Contact />
 
+
   <!-- Modal -->
   <div
     class="modal fade"
@@ -68,7 +69,11 @@
               <option class="category_opt" value="sport">Sport</option>
               <option class="category_opt" value="politics">Reality</option>
             </select>
-            <label for="Image" class="heading_inputs">Image <span class="required">*</span></label>
+            <label for="Image" class="heading_inputs">Image <span class="required">*</span>     </label>
+           <span class="hover_info">
+            <img src="https://i7.uihere.com/icons/928/977/220/info-219389368a6aaae683552861f294b890.png" alt="Avatar" class="image">
+            <div class="overlay">My Name is John</div>
+          </span>
             <input type="text" placeholder="Image Link" v-model="img" required class="modal_postImg" />
             <label for="Content" class="heading_inputs">Content <span class="required">*</span></label>
             <textarea type="text"  v-model="details" class="modal_postDetails" require  />
@@ -175,10 +180,44 @@ export default {
       }
     },
   },
+  created() {
+      if(this.currentUser){
+          if(this.currentUser.role == 'admin'){
+              this.showAdmin = true;
+          }else{
+              this.showAdmin = false;
+          }
+      }
+  }
 };
 </script>
 
 <style scoped>
+.overlay {
+  position: absolute;
+  bottom: 100;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); 
+  color: #f1f1f1;
+
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 10px;
+  padding: 7px;
+  text-align: center;
+}
+
+.hover_info:hover .overlay {
+  opacity: 1;
+}
+
+
+.hover_info img{
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+}
 .heading_inputs{
   font-family: "Inter";
   font-weight: 550 !important;
